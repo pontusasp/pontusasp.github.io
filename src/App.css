@@ -26,14 +26,21 @@
 }
 
 .App-content {
+  color: white;
+  background: linear-gradient(#14171f, #1d212c);
+  height: 92vh;
+  padding: 0 calc(0.5rem + 1vmin);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.App-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  background: linear-gradient(#14171f, #1d212c);
-  min-height: 92vh;
-  padding: 0 calc(0.5rem + 1vmin);
+  height: 92vh;
+  box-sizing: border-box;
 }
 
 .App-bigtext {
