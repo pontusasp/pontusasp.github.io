@@ -4,7 +4,7 @@
 
 .App-footer {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   justify-content: center;
   color: white;
   background: linear-gradient(#14171f, #1d212c);
-  min-height: 90vh;
+  min-height: 92vh;
   padding: 0 calc(0.5rem + 1vmin);
 }
 
