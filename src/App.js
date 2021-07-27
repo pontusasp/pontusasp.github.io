@@ -15,6 +15,9 @@ class App extends React.Component {
         <Router>
           <div className="App-content">
             <Switch>
+              <Route path="/Apps/the-red-painter/privacy-policy">
+                <TheRedPainterPP />
+              </Route>
               <Route path="/Apps/the-red-painter">
                 <TheRedPainter />
               </Route>
@@ -86,7 +89,23 @@ function TheRedPainter() {
         The Red Painter
       </p>
       <p className="App-slim text-i">
-        <Link to="/RedPainter">Privacy Policy</Link>
+        <Link to="/Apps/the-red-painter/privacy-policy">Privacy Policy</Link>
+      </p>
+    </div>
+  );
+}
+
+function TheRedPainterPP() {
+  return (
+    <div className="App-page">
+      <p className="App-bigtext">
+        The Red Painter Privacy Policy
+      </p>
+      <p className="App-slim">
+        I do not collect any user data in my game The Red Painter.<br/><br/>
+        However the game is built with Unity and I can not control what data they collect.<br/>
+        You can find Unity's privacy policy
+        here: <a href="https://unity3d.com/legal/privacy-policy" target="_blank">https://unity3d.com/legal/privacy-policy</a>
       </p>
     </div>
   );
