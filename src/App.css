@@ -9,7 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 1em;
+  padding: 0 2em;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -21,6 +21,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5em;
+}
+
+.App-menu a {
+  text-decoration: none;
+  color: white;
 }
 
 .App-logo {
