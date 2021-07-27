@@ -4,21 +4,27 @@
 
 .App-footer {
   background-color: #282c34;
-  min-height: 8vh;
+  height: 8vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0 1em;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-menu {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+
 .App-logo {
-  font-weight: bold;
-  border-color: #3a404b;
-  border-style: solid;
-  border-width: 0 2px 0 0;
-  padding-right: 0.25em;
+  height: 4vh;
 }
 
 .App-link {
@@ -65,4 +71,8 @@
 
 .text-i {
   font-style: italic;
+}
+
+.inline {
+  display: inline-block;
 }

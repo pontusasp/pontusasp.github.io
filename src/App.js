@@ -1,4 +1,5 @@
 import './App.css';
+import logo from './pontusasp-logo.svg';
 import React from 'react';
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
               Hello! My name is <span className="My-name">Pontus Asp</span>.
             </p>
             <p className="App-slim text-i">
-              I am a student in the <span className="My-programme">Information and Communication Technology</span> programme
+              I am a student at the <span className="My-programme">Information and Communication Technology</span> programme
               at <span className="My-school">KTH Royal Institute of Technology</span> in Stockholm.
             </p>
             <div>
@@ -29,9 +30,14 @@ class App extends React.Component {
             </p>
           </div>
         </div>
-        <header className="App-footer">
-          <div className="App-logo">P/A</div>
-        </header>
+        <footer className="App-footer">
+          <div className="App-menu">
+          <img src={logo} className="App-logo" alt="App-logo" />
+            <div>Apps</div>
+            <div>Links</div>
+            <div>About</div>
+          </div>
+        </footer>
       </div>
     );
   }
