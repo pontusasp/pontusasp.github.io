@@ -1,1 +1,273 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Pontus Asp's personal website"/><link rel="apple-touch-icon" href="/android-chrome-192x192.png"/><link rel="manifest" href="/manifest.json"/><title>Pontus Asp</title><link href="/static/css/main.1e2f31f0.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function t(t){for(var n,i,a=t[0],c=t[1],l=t[2],s=0,p=[];s<a.length;s++)i=a[s],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&p.push(o[i][0]),o[i]=0;for(n in c)Object.prototype.hasOwnProperty.call(c,n)&&(e[n]=c[n]);for(f&&f(t);p.length;)p.shift()();return u.push.apply(u,l||[]),r()}function r(){for(var e,t=0;t<u.length;t++){for(var r=u[t],n=!0,a=1;a<r.length;a++){var c=r[a];0!==o[c]&&(n=!1)}n&&(u.splice(t--,1),e=i(i.s=r[0]))}return e}var n={},o={1:0},u=[];function i(t){if(n[t])return n[t].exports;var r=n[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r=o[e];if(0!==r)if(r)t.push(r[2]);else{var n=new Promise((function(t,n){r=o[e]=[t,n]}));t.push(r[2]=n);var u,a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"19f6271f"}[e]+".chunk.js"}(e);var c=new Error;u=function(t){a.onerror=a.onload=null,clearTimeout(l);var r=o[e];if(0!==r){if(r){var n=t&&("load"===t.type?"missing":t.type),u=t&&t.target&&t.target.src;c.message="Loading chunk "+e+" failed.\n("+n+": "+u+")",c.name="ChunkLoadError",c.type=n,c.request=u,r[1](c)}o[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:a})}),12e4);a.onerror=a.onload=u,document.head.appendChild(a)}return Promise.all(t)},i.m=e,i.c=n,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)i.d(r,n,function(t){return e[t]}.bind(null,n));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var a=this["webpackJsonppontusasp.github.io"]=this["webpackJsonppontusasp.github.io"]||[],c=a.push.bind(a);a.push=t,a=a.slice();for(var l=0;l<a.length;l++)t(a[l]);var f=c;r()}([])</script><script src="/static/js/2.4a3aa521.chunk.js"></script><script src="/static/js/main.35a3c74c.chunk.js"></script></body></html>
+<!doctype html>
+<html>
+    <head>
+        <script src="https://pixijs.download/release/pixi.js"></script>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="playerName" type="text" placeholder="Player Name">
+        <input id="playerNameSubmit" type="button" value="Join">
+
+        <script type="module">
+
+            // ----------------------------------------------------------------------------------------------//
+            // --------------------------------------- firebase code  ---------------------------------------//
+            // ----------------------------------------------------------------------------------------------//
+
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyBRtAuqGuk95gVVuFnIpHkxZNrnuMBcyd8",
+                authDomain: "itk-winter-wonderwar.firebaseapp.com",
+                databaseURL: "https://itk-winter-wonderwar-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "itk-winter-wonderwar",
+                storageBucket: "itk-winter-wonderwar.appspot.com",
+                messagingSenderId: "976506969988",
+                appId: "1:976506969988:web:d983e49dce9ff3185d07d1",
+                measurementId: "G-G3Q6SKKYKB"
+            };
+
+            // Initialize Firebase
+            const firebaseApp = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(firebaseApp);
+
+            import { getDatabase, ref, set, get, child, update, remove } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js";
+
+            const db = getDatabase();
+
+
+            // ----------------------------------------------------------------------------------------------//
+            // ------------------------------------- pixiJS game code  --------------------------------------//
+            // ----------------------------------------------------------------------------------------------//
+
+
+            let app = new PIXI.Application({ width: 1058, height: 705 });
+
+            let player = {
+                x: 0.0,
+                y: 0.0
+            };
+
+            const tfPlayerName = document.getElementById('playerName');
+            const btnPlayerName = document.getElementById('playerNameSubmit');
+
+            
+
+
+            let players = {};
+            players[tfPlayerName.value] = {x: 0.0, y: 0.0};
+
+            function joinGame() {
+                set(ref(db, "players/" + tfPlayerName.value), {
+                    "x": player.x,
+                    "y": player.y
+                })
+                .then(() => {
+                    console.log("Data 'players/"+tfPlayerName.value+"' stored successfully");
+                    tfPlayerName.classList.add('hidden');
+                    btnPlayerName.classList.add('hidden');
+                    game();
+                })
+                .catch((error) => {
+                    console.log("set data error: " + error);
+                    alert('Failed to join! Please try again.');
+                });
+            }
+
+            btnPlayerName.addEventListener('click', joinGame);
+            let bg = PIXI.Sprite.from('winter.jpg');
+            bg.scale.set(0.5, 0.5);
+
+
+            // ----------------------------------------------------------------------------------------------//
+            // ------------------------------------- pixiJS game logic --------------------------------------//
+            // ----------------------------------------------------------------------------------------------//
+            function game() {
+
+                const intervalUpdate = setInterval(() => {
+                    update(ref(db, "players/" + tfPlayerName.value), {
+                        "x": player.x,
+                        "y": player.y
+                    })
+                    .then(() => {
+                        
+                    })
+                    .catch(() => {
+                        console.log('update data error: ' + error);
+                    });
+                }, 200);
+
+                const intervalGet = setInterval(() => {
+                    const dbRef = ref(db);
+
+                    get(child(dbRef, 'players')).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            snapshot.forEach((snap) => {
+                                if (!(snap.key in players)) players[snap.key] = {};
+                                players[snap.key].x = snap.val().x;
+                                players[snap.key].y = snap.val().y;
+                            });
+                        }
+                        else {
+                            console.log('get data failed: No data found');
+                        }
+                    }).catch((error) => {
+                        console.log('get data error: ' + error);
+                    });
+                }, 200);
+
+                const keyCode = {
+                    w: 87,
+                    a: 65,
+                    s: 83,
+                    d: 68,
+                }
+
+                let w = false;
+                let a = false;
+                let s = false;
+                let d = false;
+
+                function onKey(key, down) {
+                    switch(key.keyCode) {
+                        case keyCode.w:
+                            key.w = down;
+                            w = down;
+                            break;
+                        case keyCode.a:
+                            key.a = down;
+                            a = down;
+                            break;
+                        case keyCode.s:
+                            key.s = down;
+                            s = down;
+                            break;
+                        case keyCode.d:
+                            key.d = down;
+                            d = down;
+                            break;
+                        default:
+                            console.log('Unbound key: ' + key.keyCode);
+                    }
+                }
+                document.addEventListener('keydown', (key) => {onKey(key, true)});
+                document.addEventListener('keyup', (key) => {onKey(key, false)});
+
+                
+                document.body.appendChild(app.view);
+                app.stage.addChild(bg);
+
+                let time_elapsed = 0.0;
+                app.ticker.add((delta) => {
+                    time_elapsed += delta;
+
+                    for (const [key, value] of Object.entries(players)) {
+                        if (value.sprite === undefined) {
+                            let tmpsprite = PIXI.Sprite.from('ITK_nat_santa.png');
+                            tmpsprite.scale.set(0.5, 0.5);
+                            app.stage.addChild(tmpsprite);
+                            value.sprite = tmpsprite;
+                        }
+                    }
+
+                    let dx = 0.0;
+                    let dy = 0.0;
+                    if (w) {
+                        dy -= 10 * delta;
+                    }
+                    if (s) {
+                        dy += 10 * delta;
+                    }
+                    if (a) {
+                        dx -= 10 * delta;
+                    }
+                    if (d) {
+                        dx += 10 * delta;
+                    }
+
+                    player.x += dx;
+                    player.y += dy;
+
+                    let i = 0;
+                    for (const [key, value] of Object.entries(players)) {
+                        if (key !== tfPlayerName.value) {
+                            value.sprite.x = value.x;
+                            value.sprite.y = value.y;
+                        } else {
+                            value.sprite.x = player.x;
+                            value.sprite.y = player.y;
+                        }
+                    }
+                });
+            }
+
+        </script>
+    </body>
+</html>
+
+<!--
+
+
+    function setData() {
+                set(ref(db, "text"), {
+                    "content_variable_name": bigOne.value
+                })
+                .then(() => {
+                    console.log("Data stored successfully");
+                })
+                .catch((error) => {
+                    console.log("set data error: " + error);
+                });
+            }
+
+            function updateData() {
+                update(ref(db, 'text'), {
+                    content_variable_name
+                })
+                .then(() => {
+                    console.log("Data updated successfully");
+                })
+                .catch(() => {
+                    console.log('update data error: ' + error);
+                });
+            }
+
+            function getData() {
+                const dbRef = ref(db);
+
+                get(child(dbRef, 'text')).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        bigOne.value = snapshot.val().content_variable_name;
+                    }
+                    else {
+                        console.log('get data failed: No data found');
+                    }
+                }).catch((error) => {
+                    console.log('get data error: ' + error);
+                });
+            }
+
+            function removeData() {
+                remove(ref(db, 'text'), {
+                    content_variable_name
+                })
+                .then(() => {
+                    console.log("Data removed successfully");
+                })
+                .catch(() => {
+                    console.log('remove data error: ' + error);
+                });
+            }
+
+
+-->
