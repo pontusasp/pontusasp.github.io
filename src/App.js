@@ -76,7 +76,10 @@ function Links() {
   return (
     <div id="Links" className="App-page">
       <p>
-        Test
+        <a href="https://github.com/pontusasp">GitHub</a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/pontus-asp-a98a82157/">LinkedIn</a>
       </p>
     </div>
   );
