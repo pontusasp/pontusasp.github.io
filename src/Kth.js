@@ -74,6 +74,42 @@ function Dh2650Blog() {
             body: <>In todays meeting session we came up with a new idea for what kind of game we want to make. We had a few ideas, like a rougelike where you never attack your enemies but make them accidentally kill each other, but very quickly we started leaning towards a game with similarities to Hotline Miami. Our initial idea is to make a game where you using magical items have to kill enemies, similar to Hotline Miami. We discussed this idea for around two hours and tried to evolve it and decide where we wanna go with certain details, such as if we should have a health bar or if you should die immediatly on a hit. Or if you are limited by a character mana reserve, or if each weapon had a limited amount of non-refillable mana. Another idea was to use "Rage", i.e. you build up your energy by killing enemies, and if you stop then it will slowly decrease. What it seems like we have ended up on is a mix of using mana but also rage. The rage energy will however not limit your casting in any way but will instead either boost your stats, give you protection or an extra life if you have high enough energy. In the end of the meeting we decided to work on the presentation for friday on thursday the 31st of March.</>,
             date: <>2022-03-29</>
         },
+        {
+            title: <>Meeting #4 - Game Pitch</>,
+            body: <><p>In todays meeting we fleshed out our game design idea while working on our presentation for our elevator (game) pitch. We also settled on a first name that I came up with during the last meeting, <i>Wanderful</i>. The name comes from the game being themed around magic (i.e. wands) and that it fit nice with wonderful. So far is just thought of as a temporary name but we will see if it sticks or not. I also made a quick first draft of a logo for our game which we will show during our presentation.</p>
+            <div style={{textAlign:'center'}}>
+            <h4>Wanderful</h4>
+            <img src="/img/logo_1.png"/>
+            </div>
+            <p>
+            When making the presentation we discussed how we would pitch our game in the best way and identified more exactly what each group members vision of the final game was. What we ended up with was 4 points:
+            <ul className="nts">
+                <li>High intensity</li>
+                <li>Customization</li>
+                <li>Easy to learn, hard to master</li>
+                <li>Unique runs (randomization)</li>
+            </ul>
+            
+            For our defining factors we wrote:
+            <ul className="nts">
+                <li>2d Top-down shooter</li>
+                <li>Fight with powerful magic!</li>
+                <li>Hundreds of combinations of equipment!</li>
+                <li>Infinite replayability!</li>
+            </ul>
+            Some of these might not be very realistic for our demo but would be if we had time for a full game, one of the not very realistic things is the hundreds of combinations of equipment. Keyword here is <i>combinations</i>, but we still don't think we will have that kind of time to spend.
+
+            For our unique selling points we thought that for the type of game we want to make we have a relatively unexplored setting for our game. The setting is that we are a magician that is trying to escape a castle, prison or (evil) school while having to keep the pace up enough to not get caught by the warden. Our vision of our game is somewhat similar to hotline miami but with magic instead and also with the mana and rage system. What also differs is the fact that you have someone chasing you at all points. So the list we made for this is as following:
+            <ul className="nts ">
+                <li>Unexplored setting for this style of game</li>
+                <li>Engaging skill-based magic system</li>
+                <li>Rage system that rewards good player performance</li>
+            </ul>
+            Finally we had our slide that was summary and business case. Here we will bring up competitors, such as hotline miami, maybe wizard of legend and other games. But we also discussed what makes our game unique, and we think what makes our game unique and also fun is the fact that the game should be easy to get into, but hard to master. So we want to give the player a sense of progression by becoming both a better player and also by finding other magical items they can use. We also want to make the game so that it can  pose a challenge hard enough to be satisfactory to finish but not so easy it easily bores the player. This itself was not what will make our game unique but probably most of all the mix between hotline miami, the magic system and also the rage system, together with the warden that is constantly on the hunt for you that you don't want to be caught by. 
+            </p>
+            <p>We scheduled our next meeting for monday the 4th of April where we will debrief how the presentation went, feedback from the presentation and what to do next etc.</p></>,
+            date: <>2022-03-31</>
+        },
     ];
 
     return (

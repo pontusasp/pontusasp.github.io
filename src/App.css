@@ -89,3 +89,19 @@ a:visited {
 .inline {
   display: inline-block;
 }
+
+/* No Top Spacing */
+.nts {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+ul.dashed {
+  list-style-type: none;
+}
+
+ul.dashed > li:before {
+  content: '-';
+  float:left;
+  text-indent: -1.15em;
+}
