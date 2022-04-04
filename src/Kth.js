@@ -110,6 +110,21 @@ function Dh2650Blog() {
             <p>We scheduled our next meeting for monday the 4th of April where we will debrief how the presentation went, feedback from the presentation and what to do next etc.</p></>,
             date: <>2022-03-31</>
         },
+        {
+            title: <>Meeting #5 - Preparations</>,
+            body: <>
+                <p>
+                    In this meeting we started off with discussing the feedback we got from the presentation, which mostly consisted of us potentially being overambitious. This wasn't totally unexpected though since we made our pitch from what we want our game to finally be, and maybe not what we can present at the end of the course. I would have liked a bit less ambitious presentation but that's just how it ended up being.
+                </p>
+                <p>
+                    Later we discussed what we want to try to get ready until the first demo on Friday. After deciding this we divided the responsibilities after also checking what we all felt comfortable working with. Even though I felt comfortable with most coding in the project, I ended up with the task of drawing some pixelart we couldn't easily find on the Unity Asset Store since I was one of the few that said I felt ok with drawing. So that is what I will be working on this week mostly, and maybe implementing it in Unity for the character. We also decided on which Unity version we will use.
+                </p>
+                <p>
+                    Our next meeting is planned for Thursday (7th of April) where we will put together all our work and decide on a version control system.
+                </p>
+            </>,
+            date: <>2022-04-04</>,
+        },
     ];
 
     return (
