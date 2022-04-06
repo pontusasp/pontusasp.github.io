@@ -125,6 +125,20 @@ function Dh2650Blog() {
             </>,
             date: <>2022-04-04</>,
         },
+        {
+            title: <>First Character Pixelart</>,
+            body: <>
+                <p>
+                    This week I have been playing around a bit with pixelart and tried to learn how to do some simple animation for them. It took a bit longer than what I would believe from how they turned out but I feel pretty happy with them at least! The walking animation can be mixed together with the spellcasting animations so they can be played independently depending on what the character is currently doing ingame. Here is the result!
+                </p>
+                <div style={{textAlign:'center'}}>
+                    <img style={{width:'30%'}} src="/img/blog/dh2650/first_character_running.gif"/>
+                    <img style={{width:'30%'}} src="/img/blog/dh2650/first_character_basic_spell.gif"/>
+                    <img style={{width:'30%'}} src="/img/blog/dh2650/first_character_wand_spell.gif"/>
+                </div>
+            </>,
+            date: <>2022-04-06</>
+        },
     ];
 
     return (
