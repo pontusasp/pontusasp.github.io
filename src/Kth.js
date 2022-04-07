@@ -139,6 +139,21 @@ function Dh2650Blog() {
             </>,
             date: <>2022-04-06</>
         },
+        {
+            title: <>Meeting #6 - Finalizing the demo</>,
+            body: <>
+                <p>
+                    In this meeting we combined what we have worked on into one single project and also set up a git repository (... which we should probably have done from the very start lol).
+                    Here are two screenshots of what we have so far, the screenshots does not do the game justice since I didn't manage to get one that captured how the projectiles looked like.
+                </p>
+                <div style={{textAlign:'center'}}>
+                    <img style={{width:'49%'}} src="/img/blog/dh2650/demo1_2.png"/>
+                    <div style={{width:'1%', display:'inline-block'}}></div>
+                    <img style={{width:'49%'}} src="/img/blog/dh2650/demo1_1.png"/>
+                </div>
+            </>,
+            date: <>2022-04-07</>
+        },
     ];
 
     return (
