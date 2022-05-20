@@ -154,6 +154,123 @@ function Dh2650Blog() {
             </>,
             date: <>2022-04-07</>
         },
+        {
+            title: <>Busy working</>,
+            body: <>
+                <p>
+                    I have been a bit busy with catching up with other courses and also with working on this course. So the website has not been continuously updated. As of writing this it is the 19th of May, so I will be producing blog posts about what I did each week and what we spent our time in each meeting talking about. I am checking against meeting notes, git and our group chat to make sure I have the timeline correct. So the date below is the relevant date for each blog post rather than the date of posting. This is true up until 2022-05-19.
+                </p>
+            </>,
+            date: <>2022-04-12</>,
+        },
+        {
+            title: <>Meeting #7</>,
+            body: <>
+                <p>
+                    * Assisted with git regarding merging, branching rebasing etc.
+                </p>
+            </>,
+            date: <>2022-04-12</>,
+        },// Same doc for #7 and #8
+        { // https://docs.google.com/document/d/1R7QbLIJgMaEQbY_PDRLt-M6EXoDrAfKE0DDCwecVSGU/edit
+            // #8: Also spoke about competitors: https://docs.google.com/spreadsheets/d/10ecp_EoYoXj5km-bABbsz_JPKJizqSWmN1mtMPTnpTQ/edit#gid=0
+            title: <>Meeting #8</>,
+            body: <>
+                <p>
+                    * competitors
+                    * redesigning wizard discussion
+                </p>
+            </>,
+            date: <>2022-04-13</>,
+        },
+        {
+            title: <>Status Update #1</>,
+            body: <>
+                <p>
+
+                </p>
+            </>,
+            date: <>2022-04-14</>,
+        },
+        {   // https://docs.google.com/forms/d/e/1FAIpQLSeBExTkRsiz2FArJ8kWCMmZ9pMx5lL0LR7O3UaludxpZGycrg/viewform
+            // https://docs.google.com/document/d/1fYZWBN0cRd1-meoDw4vjWaYuZcNuS8m0LtA2gPgfHd8/edit
+            // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit
+            title: <>Meeting #9</>, // meeting 10 according to doc???
+            body: <>
+                <p>
+                    * pixel art websites (only little, majority next time)
+                    * git support
+                </p>
+            </>,
+            date: <>2022-04-25</>,
+        },
+        {
+            title: <>Meeting #10</>,
+            body: <>
+                <p>
+                    * assets
+                    * pixel art
+                    * guiding with git merges
+                    * discuss having meeting tomorrow to merge work
+                </p>
+            </>,
+            date: <>2022-05-03</>,
+        },
+        {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
+            title: <>Meeting #11</>,
+            body: <>
+                <p>
+                    * Absent
+                </p>
+            </>,
+            date: <>2022-05-04</>,
+        },
+        {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
+            title: <>Meeting #12</>,
+            body: <>
+                <p>
+                    * Music
+                    
+                </p>
+            </>,
+            date: <>2022-05-10</>,
+        },
+        {
+            title: <></>,
+            body: <>
+                <p>
+
+                </p>
+            </>,
+            date: <>2022-0</>,
+        },
+        {
+            title: <></>,
+            body: <>
+                <p>
+
+                </p>
+            </>,
+            date: <>2022-0</>,
+        },
+        {
+            title: <></>,
+            body: <>
+                <p>
+
+                </p>
+            </>,
+            date: <>2022-0</>,
+        },
+        {
+            title: <></>,
+            body: <>
+                <p>
+
+                </p>
+            </>,
+            date: <>2022-0</>,
+        },
     ];
 
     return (
