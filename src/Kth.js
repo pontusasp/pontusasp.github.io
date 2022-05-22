@@ -154,7 +154,7 @@ function Dh2650Blog() {
             </>,
             date: <>2022-04-07</>
         },
-        {
+        /*{
             title: <>Busy working</>,
             body: <>
                 <p>
@@ -162,12 +162,26 @@ function Dh2650Blog() {
                 </p>
             </>,
             date: <>2022-04-12</>,
+        },*/
+        {
+            title: <>First Demo</>,
+            body: <>
+                <p>
+                    The first demo went good. We got a few comments, such as that the wand does not point in the same direction as you shoot (it is sligtly at an angle), that the character was a bit too fast and that the camera panning could be improved.
+                </p>
+            </>,
+            date: <>2022-04-08</>,
         },
+
+
+        // Week 15
         {
             title: <>Meeting #7</>,
             body: <>
                 <p>
-                    * Assisted with git regarding merging, branching rebasing etc.
+                    In this meeting we set up the objectives for what we should do this week which was beginning our game design document and work on the business aspect of our game. We also touched upon the critique we got during our demo and spoke about what got brought up and what we could fix.
+                    We also discussed the redesign of the wizard to make it look a bit more straight when firing the spells, but we decided to not change it for now but prioritize making new enemies instead.
+                    After this I taught the others how to use git for merging, branching, rebasing, how to create pull requests and handle merge conflicts etc since we needed to do these things for our Unity project now that we are using git.
                 </p>
             </>,
             date: <>2022-04-12</>,
@@ -177,8 +191,8 @@ function Dh2650Blog() {
             title: <>Meeting #8</>,
             body: <>
                 <p>
-                    * competitors
-                    * redesigning wizard discussion
+                    Today we discussed the different potential competitors we could have if we released our game and worked a bit on the game design document. We wrote about our business plan, target group, technical platforms and also made a MoSCoW prioritization plan.
+                    We also made a rough timeplan for what we want to do in the coming two weeks. Which among others included extending the spell system, adding a mana system, and the ability to switch spells.
                 </p>
             </>,
             date: <>2022-04-13</>,
@@ -187,11 +201,14 @@ function Dh2650Blog() {
             title: <>Status Update #1</>,
             body: <>
                 <p>
-
+                    Today me and Baptiste covered presenting the first status update physically. I felt like it went pretty good, we didn't get too many comments but I am happy nonetheless.
                 </p>
             </>,
             date: <>2022-04-14</>,
         },
+
+
+        // Week 17
         {   // https://docs.google.com/forms/d/e/1FAIpQLSeBExTkRsiz2FArJ8kWCMmZ9pMx5lL0LR7O3UaludxpZGycrg/viewform
             // https://docs.google.com/document/d/1fYZWBN0cRd1-meoDw4vjWaYuZcNuS8m0LtA2gPgfHd8/edit
             // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit
@@ -204,6 +221,8 @@ function Dh2650Blog() {
             </>,
             date: <>2022-04-25</>,
         },
+
+        // Week 18
         {
             title: <>Meeting #10</>,
             body: <>
@@ -225,6 +244,8 @@ function Dh2650Blog() {
             </>,
             date: <>2022-05-04</>,
         },
+
+        // Week 19
         {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
             title: <>Meeting #12</>,
             body: <>
@@ -235,24 +256,111 @@ function Dh2650Blog() {
             </>,
             date: <>2022-05-10</>,
         },
+        {   // https://docs.google.com/document/d/1fYZWBN0cRd1-meoDw4vjWaYuZcNuS8m0LtA2gPgfHd8/edit?usp=sharing
+            title: <>Meeting #13</>,
+            body: <>
+                <p>
+                    
+                </p>
+            </>,
+            date: <>2022-05-13</>,
+        },
         {
-            title: <></>,
+            title: <>Mutant texture + laser</>,
             body: <>
                 <p>
 
                 </p>
             </>,
-            date: <>2022-0</>,
+            date: <>2022-05-14</>,
         },
         {
-            title: <></>,
+            title: <>Meeting #14</>,
+            body: <>
+                <p>
+                    * git merges
+                    
+                </p>
+            </>,
+            date: <>2022-05-15</>,
+        },
+
+        // Week 20
+        {
+            title: <>Presentation</>,
+            /*
+            Valaras — 05/16/2022
+            My notes for today
+            Pop UP yo inform about the army you are equipping
+
+            Why do the mutants traverse the walls?
+
+            Ray is bad
+            Bug lv 3
+            R rather shift to advance the view
+
+            Feedback when you have an enemy
+
+            "Very good difficulty"
+
+            "Music is really Nice"
+
+            "The difficulty is what makes it interesting"
+
+            Change the UI because the numbers are moches
+
+            Too much mana for the player (my observation : only one player ran out of mana after spamming the most destructive spell he had)
+            Fireball by the side
+
+            Blink does not pass through the wall
+
+            =====================
+            
+            David Å — 05/16/2022
+            Feedback for the exit (especially the hub level - several people wandered about for 30-60s before realizing)
+            UI to show what spells are equipped
+            Prompt to show what spell you are about to pick up - both visually around the wand itself, and maybe a tolltip
+            Health/mana bars (!)
+            Feedback on speed boost spell (and healing spell presumably)
+            Keybinds are unintuitive - a lot of players also pressed R instinctively even when alive; picking up spells isn't super intuitive, and spacebar being a third spell is likewise not intuitive
+
+
+            Balancing work (some spells are too strong for sure)
+            Aggro parameters (some spells might be louder, and spells flying by enemies should likely aggro them)
+            Game plays better in tighter areas - might want to adjust corridors in level 1 and 3
+            Self-damage on explosion spells?
+
+            Enemies sometimes gets stuck in navmesh and always target the center of the player hitbox
+            In some places the player can break navmesh LOS by hugging a wall
+            Some walls can be passed through
+            */
             body: <>
                 <p>
 
                 </p>
             </>,
-            date: <>2022-0</>,
+            date: <>2022-05-16</>,
         },
+        {
+            title: <>Meeting #15</>,
+            body: <>
+                <p>
+                    * preparations for final presentation
+                </p>
+            </>,
+            date: <>2022-05-20</>,
+        },
+        {
+            title: <>Meeting #16</>,
+            body: <>
+                <p>
+                    * kept working on final presentation
+                </p>
+            </>,
+            date: <>2022-05-22</>,
+        },
+
+        // Week 21
         {
             title: <></>,
             body: <>
