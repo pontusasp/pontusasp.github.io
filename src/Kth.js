@@ -215,8 +215,9 @@ function Dh2650Blog() {
             title: <>Meeting #9</>, // meeting 10 according to doc???
             body: <>
                 <p>
-                    * pixel art websites (only little, majority next time)
-                    * git support
+                    We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. Some things we mentioned that we wanted to do was having bigger levels, that would be approximately 4 screens big. We also said that we will aim for 4-5 spells and that it would be nice to include some music in the game. We also spoke about what we should work for the coming week, which included adding a way for the player to die, finish the spell system, add some UI, finishing a map and a "hub area" that we decided we want before you start a level. We also said that we should add some more enemies and sprites for dead enemies and for the player as they currently simply disappear. 
+                    We also continued working with our MoSCoW prioritization list from last time to fit these into the plan.
+                    We also briefly spoke about looking for free textures and assets online for the game. At the end of the meeting I assisted with some issues regarding git again, namely updating a local branch with changes that had been pushed to the main branch on GitHub.
                 </p>
             </>,
             date: <>2022-04-25</>,
@@ -239,7 +240,7 @@ function Dh2650Blog() {
             title: <>Meeting #11</>,
             body: <>
                 <p>
-                    * Absent
+                    Today I was absent from the meeting due to being double booked, but the greatest point of todays meeting was merging our branches again and they handled it fine without me. I just wanted to log the meeting here to help keep track of what we did when.
                 </p>
             </>,
             date: <>2022-05-04</>,
@@ -362,13 +363,13 @@ function Dh2650Blog() {
 
         // Week 21
         {
-            title: <></>,
+            title: <>Meeting #17</>,
             body: <>
                 <p>
-
+                    * Did some practise for the final presentation and worked on the slides
                 </p>
             </>,
-            date: <>2022-0</>,
+            date: <>2022-05-23</>,
         },
         {
             title: <></>,
