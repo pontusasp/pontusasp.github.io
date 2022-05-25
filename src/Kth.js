@@ -215,12 +215,24 @@ function Dh2650Blog() {
             title: <>Meeting #9</>, // meeting 10 according to doc???
             body: <>
                 <p>
-                    We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. Some things we mentioned that we wanted to do was having bigger levels, that would be approximately 4 screens big. We also said that we will aim for 4-5 spells and that it would be nice to include some music in the game. We also spoke about what we should work for the coming week, which included adding a way for the player to die, finish the spell system, add some UI, finishing a map and a "hub area" that we decided we want before you start a level. We also said that we should add some more enemies and sprites for dead enemies and for the player as they currently simply disappear. 
+                    We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. Some things we mentioned that we wanted to do was having bigger levels, that would be approximately 4 screens big. We also said that we will aim for 4-5 spells and that it would be nice to include some music in the game. We also spoke about what we should work for the coming week, which included adding a way for the player to die, finish the spell system, add some UI, finishing a map and a "hub area" that we decided we want before you start a level. We also said that we should add some more enemies and sprites for dead enemies and for the player as they currently simply disappear. The enemy we decided should be next up is a more tanky version of the original wizard. I took the task of drawing it since I had drawn the original wizard.
                     We also continued working with our MoSCoW prioritization list from last time to fit these into the plan.
                     We also briefly spoke about looking for free textures and assets online for the game. At the end of the meeting I assisted with some issues regarding git again, namely updating a local branch with changes that had been pushed to the main branch on GitHub.
                 </p>
             </>,
             date: <>2022-04-25</>,
+        },
+        {
+            title: <>New Enemy! Tanky Wizard</>,
+            body: <>
+                <p>
+                    Or like we internally call it, the fat wizard! Here is a comparison image to see how the fat wizard (to the left) looks like compared to the normal wizard (to the right). They look a bit alike, but the intention is that it is just a variation of the normal wizard so I am happy with how it turned out. I also realized that it might look weird out of context but they are holding their arms out because they are supposed to be holding a wand later ingame.
+                </p>
+                <div style={{textAlign:'center'}}>
+                    <img style={{width:'49%'}} src="/img/blog/dh2650/fatvsnormal.png"/>
+                </div>
+            </>,
+            date: <>2022-04-29</>
         },
 
         // Week 18
@@ -228,23 +240,42 @@ function Dh2650Blog() {
             title: <>Meeting #10</>,
             body: <>
                 <p>
-                    * assets
-                    * pixel art
-                    * guiding with git merges
-                    * discuss having meeting tomorrow to merge work
+                    Today we checked out the pixel art one member in our team looked for since last meeting that he wanted to show us. However it turned out the website he had found mostly hosted pirated assets so I quickly found some alternative sites that we looked at instead (<a href="https://craftpix.net/freebies/" target="_blank">https://craftpix.net/freebies/</a> and <a href="https://itch.io/game-assets/free" target="_blank">https://itch.io/game-assets/free</a>). We found a nice looking pack that we settled with here: <a href="https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture/?num=1&count=99&sq=top%20down&pos=5" target="_blank">https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture/?num=1&count=99&sq=top%20down&pos=5</a>.
+                    We also spoke a bit on how to design levels and adding movement spells, such as blimp (short teleport), speed boost etc. Additionally, we discussed having a meeting tomorrow as well to merge all changes into the main branch. I was not completely sure I could make it to that meeting so I stayed and assisted one member of the group with merging their changes to the main branch as a refresher on how to do it in case I can not attend tomorrow.
                 </p>
             </>,
             date: <>2022-05-03</>,
+        },
+        {
+            title: <>New Sprite! Dead Wizard</>,
+            body: <>
+                <p>
+                   I made a death sprite for the normal wizard. I also realized I have not shown here before that the sprites are separated into multiple layers so that the wizards can have multiple different colors that can be changed through code. It works by having one layer in grayscale which will be multiplied with some color and then add the skin layer on top of this. The image here was red but is animated with css to rotate through all hues, showing different colors you could expect to see the characters in game.
+                </p>
+                <div>
+                    <div style={{width:'49%', margin:'0 auto', position:'relative'}}>
+                        <img style={{   
+                            animation: 'HueRotation 4s linear infinite'
+                        }} src="/img/blog/dh2650/wizard_dead_clothes.png"/>
+                        <img style={{
+                            position:'absolute',
+                            left: '0',
+                            top: '0'
+                            }} src="/img/blog/dh2650/wizard_dead_skin.png"/>
+                    </div>
+                </div>
+            </>,
+            date: <>2022-05-03</>
         },
         {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
             title: <>Meeting #11</>,
             body: <>
                 <p>
-                    Today I was absent from the meeting due to being double booked, but the greatest point of todays meeting was merging our branches again and they handled it fine without me. I just wanted to log the meeting here to help keep track of what we did when.
+                    Today I was absent from the meeting due to being double booked which was why I wasn't sure if I could attend today. But the most important point of todays meeting was merging our branches again and they handled it fine without me. I just wanted to log the meeting here to help keep track of what we did when.
                 </p>
             </>,
             date: <>2022-05-04</>,
-        },
+        },/*
 
         // Week 19
         {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
@@ -334,7 +365,7 @@ function Dh2650Blog() {
             Enemies sometimes gets stuck in navmesh and always target the center of the player hitbox
             In some places the player can break navmesh LOS by hugging a wall
             Some walls can be passed through
-            */
+            *//*
             body: <>
                 <p>
 
@@ -379,7 +410,7 @@ function Dh2650Blog() {
                 </p>
             </>,
             date: <>2022-0</>,
-        },
+        },*/
     ];
 
     return (

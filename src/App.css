@@ -105,3 +105,9 @@ ul.dashed > li:before {
   float:left;
   text-indent: -1.15em;
 }
+
+/* Used in DH2650 */
+@keyframes HueRotation {
+  from {filter: hue-rotate(0deg);}
+  to {filter: hue-rotate(360deg);;}
+}
