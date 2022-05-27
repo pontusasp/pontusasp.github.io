@@ -20,6 +20,9 @@ function CourseList() {
                 KTH Royal Institute of Technology Courses
             </p>
             <p className="App-slim">
+                <a href="https://github.com/pontusasp/fluid-simulation/blob/master/blog.md" target="_blank">DH2323 Computer Graphics and Interaction</a>
+            </p>
+            <p className="App-slim">
                 <Link to="/kth/dh2650/blog">DH2650 Computer Game Design</Link>
             </p>
         </div>
