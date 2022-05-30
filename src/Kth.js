@@ -296,9 +296,11 @@ function Dh2650Blog() {
                 </p>
                 <p>
                     You can listen to the music clips here:
+                    <br/>
                     <audio controls src="/img/blog/dh2650/between-levels.mp3">
                     Your browser does not support audio elements.
                     </audio>
+                    <br/>
                     <audio controls src="/img/blog/dh2650/theme.mp3">
                     Your browser does not support audio elements.
                     </audio>
