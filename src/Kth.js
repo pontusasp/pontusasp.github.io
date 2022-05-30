@@ -294,6 +294,15 @@ function Dh2650Blog() {
                 <p>
                     Since last meeting we also extended the map, fixed some issues with the navigation for the enemies and started decorating the level.
                 </p>
+                <p>
+                    You can listen to the music clips here:
+                    <audio controls src="/img/blog/dh2650/between-levels.mp3">
+                    Your browser does not support audio elements.
+                    </audio>
+                    <audio controls src="/img/blog/dh2650/theme.mp3">
+                    Your browser does not support audio elements.
+                    </audio>
+                </p>
             </>,
             date: <>2022-05-10</>,
         },
@@ -416,12 +425,11 @@ function Dh2650Blog() {
             </>,
             date: <>2022-05-16</>,
         },
-/***
         {
             title: <>Meeting #15</>,
             body: <>
                 <p>
-                    * preparations for final presentation
+                    Today we had a short meeting where we made some preparations for the final presentation. A few in the group were busy with other courses so we mainly planned out what we can work on individually until the next meeting, such as considering competitors, how we would try to sell our game etc. I also said I could try to make an outline for what we should include in the presentation until the next meeting, which we after the meeting ended up deciding we would have on Sunday.
                 </p>
             </>,
             date: <>2022-05-20</>,
@@ -430,7 +438,34 @@ function Dh2650Blog() {
             title: <>Meeting #16</>,
             body: <>
                 <p>
-                    * kept working on final presentation
+                    This meeting went pretty smoothly, like mentioned in the previous post I had planned to make an outline for the presentation - which I did. It contained these points:
+                    <ol>
+                        <li>Intro</li>
+                        <li>Overview (Genre, theme, game pace etc)</li>
+                        <li>Gameplay</li>
+                        <li>Story</li>
+                        <li>User interface and controls</li>
+                        <li>(Live?) Demo</li>
+                        <li>Target group</li>
+                        <li>Contact info and a thank you</li>
+                    </ol>
+                </p>
+                <p>
+                    But in the meeting we changed it up to this outline instead:
+                    <ol>
+                        <li>Intro</li>
+                        <li>Overview (Genre, theme, game pace etc)</li>
+                        <li>Recorded Demo</li>
+                        <li>Gameplay</li>
+                        <li>User interface and controls</li>
+                        <li>Story</li>
+                        <li>Target group</li>
+                        <li>Business plan</li>
+                        <li>Contact info and a thank you</li>
+                    </ol>
+                </p>
+                <p>
+                    We mostly finished the presentation but left a bit for tomorrow as not the entire group could be present at todays meeting either.
                 </p>
             </>,
             date: <>2022-05-22</>,
@@ -441,20 +476,30 @@ function Dh2650Blog() {
             title: <>Meeting #17</>,
             body: <>
                 <p>
-                    * Did some practise for the final presentation and worked on the slides
+                    Today we finished the presentation and also made it look a bit nicer. We also did some practise runs so we would know how long it would take to present and also decided who would be on-campus to present which I said I would be.
                 </p>
             </>,
             date: <>2022-05-23</>,
         },
         {
-            title: <></>,
+            title: <>Final Presentation</>,
             body: <>
                 <p>
-
+                    Today we had the final presentations! I think it went great, only one small hiccup happened which was during the break. My bus was late in the morning so I didn't have time to get coffee and breakfast so I ran to get some in the break, but Baptiste had the same idea so none of us was in the classroom to help people to play our game which was very unfortunate. But I talked to some people in the break after and they thought the game looked very polished since last time and also that the music was really nice! (Which I agree with, I really like the music!) 
                 </p>
             </>,
-            date: <>2022-0</>,
-        },*/
+            date: <>2022-05-24</>,
+        },
+        {
+            title: <>Final Deliverables</>,
+            body: <>
+                <p>
+                    After the final presentation we have been working on the Game Design Document and I also made a website for the game which I am very happy with!
+                    <a href="https://wanderfulgame.netlify.app/">https://wanderfulgame.netlify.app/</a>
+                </p>
+            </>,
+            date: <>2022-05-30</>,
+        },
     ];
 
     return (
