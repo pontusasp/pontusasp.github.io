@@ -215,10 +215,15 @@ function Dh2650Blog() {
         {   // https://docs.google.com/forms/d/e/1FAIpQLSeBExTkRsiz2FArJ8kWCMmZ9pMx5lL0LR7O3UaludxpZGycrg/viewform
             // https://docs.google.com/document/d/1fYZWBN0cRd1-meoDw4vjWaYuZcNuS8m0LtA2gPgfHd8/edit
             // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit
+            /*
+            We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. Some things we mentioned that we wanted to do was having bigger levels, that would be approximately 4 screens big. We also said that we will aim for 4-5 spells and that it would be nice to include some music in the game. We also spoke about what we should work for the coming week, which included adding a way for the player to die, finish the spell system, add some UI, finishing a map and a "hub area" that we decided we want before you start a level. We also said that we should add some more enemies and sprites for dead enemies and for the player as they currently simply disappear. The enemy we decided should be next up is a more tanky version of the original wizard. I took the task of drawing it since I had drawn the original wizard.
+                    We also continued working with our MoSCoW prioritization list from last time to fit these into the plan.
+                    We also briefly spoke about looking for free textures and assets online for the game. At the end of the meeting I assisted with some issues regarding git again, namely updating a local branch with changes that had been pushed to the main branch on GitHub.
+            */
             title: <>Meeting #9</>, // meeting 10 according to doc???
             body: <>
                 <p>
-                    We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. Some things we mentioned that we wanted to do was having bigger levels, that would be approximately 4 screens big. We also said that we will aim for 4-5 spells and that it would be nice to include some music in the game. We also spoke about what we should work for the coming week, which included adding a way for the player to die, finish the spell system, add some UI, finishing a map and a "hub area" that we decided we want before you start a level. We also said that we should add some more enemies and sprites for dead enemies and for the player as they currently simply disappear. The enemy we decided should be next up is a more tanky version of the original wizard. I took the task of drawing it since I had drawn the original wizard.
+                    We all had a bit to catch up from our studies and we also had some stuff to work on since last meeting so we have only been communicating over Discord for a week. But now we felt like it was time to have a meeting to merge our changes and talk about where exactly we are headed. For this we felt like we should create a document that we keep updating for what we actually settle for since it seems like we remember differently what we have settled for with some game features (although I have to say this did not happen much and a large majority of the group remembered the same thing, but since it did happen I think it is a good idea to have this document). We also spoke about what we should work for the coming week, which included more enemies and sprites for dead enemies and also for the player as they currently simply disappear. The enemy we decided should be next up is a more tanky version of the original wizard. I took the task of drawing it since I had drawn the original wizard.
                     We also continued working with our MoSCoW prioritization list from last time to fit these into the plan.
                     We also briefly spoke about looking for free textures and assets online for the game. At the end of the meeting I assisted with some issues regarding git again, namely updating a local branch with changes that had been pushed to the main branch on GitHub.
                 </p>
@@ -278,15 +283,16 @@ function Dh2650Blog() {
                 </p>
             </>,
             date: <>2022-05-04</>,
-        },/*
-
+        },
         // Week 19
         {   // https://docs.google.com/document/d/1FiFeIAQExy5aSUww27JG_aSLVLUH-01fmaQCkYZAUiU/edit#
             title: <>Meeting #12</>,
             body: <>
                 <p>
-                    * Music
-                    
+                    The highlight of todays meeting in my opinion was that David Bergendorff showed some music he had been working on for the game and it absolutely blew me away. It was really nice and I felt like it fit the game very well! He made two tracks, one which we would use when you are in-between levels (in the hub) and one while actually fighting the other wizards.
+                </p>
+                <p>
+                    Since last meeting we also extended the map, fixed some issues with the navigation for the enemies and started decorating the level.
                 </p>
             </>,
             date: <>2022-05-10</>,
@@ -295,21 +301,82 @@ function Dh2650Blog() {
             title: <>Meeting #13</>,
             body: <>
                 <p>
-                    
+                    We wrote a list of objectives, a list of what we currently have and one of what we want to have. The list of objectives contained:
+                    <ul className="nts">
+                        <li>One large level</li>
+                        <li>3-4 enemies: basic, sentry, tank, and maybe a mutant</li>
+                        <li>4-5 spells</li>
+                        <li>3 colors of spells</li>
+                        <li>Some kind of end of the levels, possibly a collectible item</li>
+                        <li>Music</li>
+                        <li>Difficulty</li>
+                    </ul>
+                </p>
+                <p>
+                    The list of what we currently have contained:
+                    <ul className="nts">
+                        <li>One level</li>
+                        <li>2 enemies: basic and tank</li>
+                        <li>4 spells (but still work in progress)</li>
+                        <li>3 colors of spells</li>
+                        <li>Music</li>
+                    </ul>
+                </p>
+                <p>
+                    And what we want to add next:
+                    <ul className="nts">
+                        <li>Player death</li>
+                        <li>Corpse for tank wizard</li>
+                        <li>Sentry or Mutant wizard</li>
+                        <li>Finish map and add a hub area</li>
+                        <li>Some UI (cursor, pick-up prompts etc)</li>
+                    </ul>
+                </p>
+                <p>
+                    We made some notes who will take care of what in the to-do list. Since at this point I have become a bit more used to the drawing software I am using I took care of the tasks of adding a corpse for the tank wizard, and also drawing a new wizard that should be a mutant or like a sentry/long range wizard.
                 </p>
             </>,
             date: <>2022-05-13</>,
         },
         {
-            title: <>Mutant texture + laser</>,
+            title: <>New Sprites! Mutant + Beam spell</>,
             body: <>
                 <p>
-
+                    I made a mutant wizard sprite, both for when it is alive and dead. I also drew a texture for one of the spells we have added to the game which is like a laser beam.
                 </p>
+                <div>
+                    <div style={{width:'50%', margin:'0 auto'}}>
+                    <div style={{width:'25%', margin:'0 auto', position:'relative', display:'inline-block'}}>
+                        <img style={{   
+                            animation: 'HueRotation 4s linear infinite'
+                        }} src="/img/blog/dh2650/enemy_primal.png"/>
+                        <img style={{
+                            position:'absolute',
+                            left: '0',
+                            top: '0'
+                            }} src="/img/blog/dh2650/enemy_primal_skin.png"/>
+                    </div>
+                    <div style={{width:'25%', margin:'0 auto', position:'relative', display:'inline-block'}}>
+                        <img style={{   
+                            animation: 'HueRotation 4s linear infinite'
+                        }} src="/img/blog/dh2650/enemy_primal_dead.png"/>
+                        <img style={{
+                            position:'absolute',
+                            left: '0',
+                            top: '0'
+                            }} src="/img/blog/dh2650/enemy_primal_dead_skin.png"/>
+                    </div></div>
+                    <div style={{
+                        height: '40px',
+                        background: 'url("/img/blog/dh2650/ray-large.gif") repeat'
+                    }}>
+                    </div>
+                </div>
             </>,
             date: <>2022-05-14</>,
         },
-        {
+/***
+        /*{
             title: <>Meeting #14</>,
             body: <>
                 <p>
