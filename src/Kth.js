@@ -375,13 +375,11 @@ function Dh2650Blog() {
             </>,
             date: <>2022-05-14</>,
         },
-/***
-        /*{
+        {
             title: <>Meeting #14</>,
             body: <>
                 <p>
-                    * git merges
-                    
+                    Today we had a meeting to prepare for the presentation tomorrow, we spoke about the layout for two new levels, some issues we encountered with our navigation for the AI. We also merged some branches and made sure everyone knows how to add spells to a gamemanager script we have in Unity. What was also done since last meeting is the game having multiple levels so that the player can get to the next level by reaching the end of the current one. Some bugs were also fixed, like the music restarting on death, on level switching and also the player inventory also resetting when going to the next level.
                 </p>
             </>,
             date: <>2022-05-15</>,
@@ -389,60 +387,36 @@ function Dh2650Blog() {
 
         // Week 20
         {
-            title: <>Presentation</>,
-            /*
-            Valaras — 05/16/2022
-            My notes for today
-            Pop UP yo inform about the army you are equipping
-
-            Why do the mutants traverse the walls?
-
-            Ray is bad
-            Bug lv 3
-            R rather shift to advance the view
-
-            Feedback when you have an enemy
-
-            "Very good difficulty"
-
-            "Music is really Nice"
-
-            "The difficulty is what makes it interesting"
-
-            Change the UI because the numbers are moches
-
-            Too much mana for the player (my observation : only one player ran out of mana after spamming the most destructive spell he had)
-            Fireball by the side
-
-            Blink does not pass through the wall
-
-            =====================
-            
-            David Å — 05/16/2022
-            Feedback for the exit (especially the hub level - several people wandered about for 30-60s before realizing)
-            UI to show what spells are equipped
-            Prompt to show what spell you are about to pick up - both visually around the wand itself, and maybe a tolltip
-            Health/mana bars (!)
-            Feedback on speed boost spell (and healing spell presumably)
-            Keybinds are unintuitive - a lot of players also pressed R instinctively even when alive; picking up spells isn't super intuitive, and spacebar being a third spell is likewise not intuitive
-
-
-            Balancing work (some spells are too strong for sure)
-            Aggro parameters (some spells might be louder, and spells flying by enemies should likely aggro them)
-            Game plays better in tighter areas - might want to adjust corridors in level 1 and 3
-            Self-damage on explosion spells?
-
-            Enemies sometimes gets stuck in navmesh and always target the center of the player hitbox
-            In some places the player can break navmesh LOS by hugging a wall
-            Some walls can be passed through
-            *//*
+            title: <>Status Update #2 + Demo</>,
             body: <>
                 <p>
-
+                    The status update and demo went well! We got a bunch of useful feedback which I will list here:
+                </p>
+                <p>
+                    Pop up that informs about what kind of spell you have equipped, mutants (actually we later noticed all enemies) may sometimes walk through walls. The ray spell is bad, when reaching level 3 you instantly die at the center of the map. The restart button should not be on [R] as this might be better suited to hold when panning the camera for example. The UI is bad, get something better than just numbers on the screen.
+                </p>
+                <p>
+                    The difficulty is good, the music is really nice, the difficulty is what makes the game fun. Make some feedback for when you kill an enemy. You have too much mana, it is too easy not to run out.
+                </p>
+                <p>
+                    People didn't realize what to do in the hub level (you should just exit it when you are ready to play). Add UI to show what spells are in the inventory. Add prompts for what spell is close to you on the ground so it is easy to see, and potentially also a tooltip!
+                </p>
+                <p>
+                    Add health and mana bar UI!
+                    Add some feedback to let the players know when they use the stat boost spell.
+                    The keybinds are unintuitive. Some balancing needs to be done, some spells are too strong. Tweak the aggro (enemies start attacking when spells hit nearby even if player is far away) so that louder spells have a larger aggro radius.
+                    The game plays the best in tight areas, so maybe adjust the open areas in level 1 and 3 to be smaller.
+                </p>
+                <p>
+                    Player can't hurt themselves with explosive spells, consider adding this. Enemies are always completely accurate, add some variance. Sometimes enemies get stuck.
+                </p>
+                <p>
+                    The player can walk through some walls by pressing against them while walking along them.
                 </p>
             </>,
             date: <>2022-05-16</>,
         },
+/***
         {
             title: <>Meeting #15</>,
             body: <>
