@@ -494,8 +494,8 @@ function Dh2650Blog() {
             title: <>Final Deliverables</>,
             body: <>
                 <p>
-                    After the final presentation we have been working on the Game Design Document and I also made a website for the game which I am very happy with!
-                    <a href="https://wanderfulgame.netlify.app/">https://wanderfulgame.netlify.app/</a>
+                    After the final presentation we have been working on the Game Design Document and I also made a website for the game which I am very happy with! 
+                    <br/><a href="https://wanderfulgame.netlify.app/" target="_blank">https://wanderfulgame.netlify.app/</a>
                 </p>
             </>,
             date: <>2022-05-30</>,
