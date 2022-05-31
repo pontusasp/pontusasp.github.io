@@ -502,6 +502,18 @@ function Dh2650Blog() {
             </>,
             date: <>2022-05-30</>,
         },
+        {
+            title: <>Goodbye, DH2650!</>,
+            body: <>
+                <p>
+                    We just handed in the Game Design Document along with the link to the website and also the binaries for the game.
+                </p>
+                <p>
+                    This course has been really fun and I have learned a lot! We made our game in Unity which was nice, previously when I have used Unity I relied very heavily on scripting and kind of lost a lot of what Unity offered which I have learned how to utilize more now. It was also the first time I have had some kind of AI in Unity, and even if I was not the one who implemented it I could still learn from how it was implemented. I will definitely use it in my hobby projects in the future! I also got to (if I may say so myself) improve my pixelart skills! I had already purchased the software (Aseprite) that I used during the course previously so the interest was there, but I have never put this much effort into drawing characters before.
+                </p>
+            </>,
+            date: <>2022-05-31</>,
+        },
     ];
 
     return (
