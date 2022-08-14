@@ -6,6 +6,7 @@ import Apps from './Apps';
 import Kth from './Kth';
 import Links from './Links';
 import About from './About';
+import T30 from './T30';
 
 class App extends React.Component {
 
@@ -19,6 +20,9 @@ class App extends React.Component {
         <Router>
           <div className="App-content">
             <Switch>
+              <Route path="/tove/30">
+                <T30 />
+              </Route>
               <Route path="/apps">
                 <Apps />
               </Route>
