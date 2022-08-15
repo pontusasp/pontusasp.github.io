@@ -35,10 +35,10 @@ function exchange() {
             ph.innerHTML = 'Hmm vad står bakom Peter LeMarcs rygg?';
             break;
         case 'caprese':
-            ph.innerHTML = 'Har du vunnit en match och visat Pontus än?'
+            ph.innerHTML = 'Hmm det finns ingen caprese i kylen, ligger den kanske ovanpå?';
             break;
         case 'färgmix':
-            ph.innerHTML = 'Lite leveransproblem pga död mobil...'
+            ph.innerHTML = 'Lite leveransproblem pga död mobil...';
             break;
         default:
             const date1 = new Date("01/26/2022");
