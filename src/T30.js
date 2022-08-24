@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
     a. På hemsidan finns det endast en tom textruta och en submitknapp
     b. vad man får av förta koden: koordinater (+ kanske en hint under chiffer)
 2. Geocache innehåller kod till hemsidan bakom scoutchiffer
-3. Hemsidan ger då en prompt där den frågar hur många dagar sedan vi blev tillsammans gånger många dagar sedan vi blev förlovade
+3. Hemsidan ger då en prompt där den frågar hur många dagar sedan vi blev tillsammans
     a. Visar en bild på vart första boken ligger som innehåller krypterade meddelandet "Låtnamn kill your enemies my brothers dead"
     b. Ger koordinat som resultat
 4. Geocache innehåller krypteringnyckeln till koden till hemsidan igen, denna gång krypterat med mönstrat papper
