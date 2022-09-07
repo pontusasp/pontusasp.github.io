@@ -37,8 +37,11 @@ function exchange() {
         case 'caprese':
             ph.innerHTML = 'Hmm det finns ingen caprese i kylen, ligger den kanske ovanpå?';
             break;
-        case 'färgmix':
-            ph.innerHTML = 'Lite leveransproblem pga död mobil...';
+        case 'färger':
+            ph.innerHTML = 'Vad ligger i den beiga påsen?';
+            break;
+        case 'försenad':
+            ph.innerHTML = 'Hmm vad kan det ligga i garderoben?';
             break;
         default:
             const date1 = new Date("01/26/2022");
