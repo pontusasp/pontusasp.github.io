@@ -7,6 +7,7 @@ import Kth from './Kth';
 import Links from './Links';
 import About from './About';
 import T30 from './T30';
+import Portfolio from './Portfolio';
 
 class App extends React.Component {
 
@@ -32,6 +33,9 @@ class App extends React.Component {
               <Route path="/links">
                 <Links />
               </Route>
+              <Route path="/portfolio">
+                <Portfolio />
+              </Route>
               <Route path="/">
                 <About />
               </Route>
@@ -41,6 +45,7 @@ class App extends React.Component {
             <div className="App-menu">
             <Link to="/"><img src={logo} className="App-logo" alt="App-logo" /></Link>
               <div><Link to="/apps">Apps</Link></div>
+              <div><Link to="/portfolio">Portfolio</Link></div>
               <div><Link to="/kth">KTH</Link></div>
               <div><Link to="/links">Links</Link></div>
             </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function About() {
     return (
@@ -7,7 +7,7 @@ function About() {
                 Hello! My name is <span className="My-name">Pontus Asp</span>.
             </p>
             <p className="App-slim text-i">
-                I am a student at the <span className="My-programme">Information and Communication Technology</span> programme
+                I am a student at the <span className="My-programme">Computer Science</span> master programme with subtrack Visualization
                 at <span className="My-school">KTH Royal Institute of Technology</span> in Stockholm, Sweden.
             </p>
             <div>

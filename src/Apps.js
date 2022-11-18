@@ -8,9 +8,14 @@ function Apps() {
             </Route>
             <Route path="/apps">
                 <div id="Apps" className="App-page">
-                    <p>
-                        <Link to="/apps/the-red-painter">The Red Painter</Link>
-                    </p>
+                    <Link to="/apps/the-red-painter">
+                        <p>
+                            <img alt="The Red Painter logo" src="/img/red-painter-man-icon.png"/>
+                        </p>
+                        <p>
+                            The Red Painter
+                        </p>
+                    </Link>
                 </div>
             </Route>
         </Switch>
@@ -36,6 +41,12 @@ function TheRedPainter() {
                     </p>
                 </Route>
                 <Route path="/apps/the-red-painter">
+                    <p>
+                        <img alt="The Red Painter logo" style={{width: '80%'}} src="/img/red-painter-man-icon.png"/>
+                    </p>
+                    <p>
+                        <a href='https://play.google.com/store/apps/details?id=com.pontusasp.TheRedPainter&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img style={{width: '40%'}} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                    </p>
                     <p className="App-slim text-i">
                         <Link to="/apps/the-red-painter/privacy-policy">Privacy Policy</Link>
                     </p>
