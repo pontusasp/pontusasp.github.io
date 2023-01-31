@@ -1,5 +1,5 @@
 import './App.css';
-import logo from './pontusasp-logo.svg';
+import logo from './pontusasp-logo.min.svg';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Apps from './Apps';
