@@ -59,6 +59,8 @@ a:visited {
   align-items: center;
   justify-content: center;
   height: 92vh;
+  width: 70%;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -110,4 +112,39 @@ ul.dashed > li:before {
 @keyframes HueRotation {
   from {filter: hue-rotate(0deg);}
   to {filter: hue-rotate(360deg);;}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .App-page {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .App-page {
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .App-page {
+    width: 100%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .App-page {
+    width: 60%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .App-page {
+    width: 50%;
+  }
 }
