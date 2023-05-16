@@ -6,6 +6,15 @@ function Kth() {
             <Route path="/kth/dh2650/blog">
                 <Dh2650Blog />
             </Route>
+            <Route path="/kth/dh2323">
+                <Dh2323 />
+            </Route>
+            <Route path="/kth/dh2413">
+                <Dh2413 />
+            </Route>
+            <Route path="/kth/dh2650">
+                <Dh2650 />
+            </Route>
             <Route path="/kth">
                 <CourseList />
             </Route>
@@ -17,13 +26,16 @@ function CourseList() {
     return (
         <div className="App-page">
             <p className="App-bigtext">
-                KTH Royal Institute of Technology Courses
+                KTH Royal Institute of Technology Course Projects
             </p>
             <p className="App-slim">
-                <a href="https://github.com/pontusasp/fluid-simulation/blob/master/blog.md" target="_blank">DH2323 Computer Graphics and Interaction</a>
+                <Link to="/kth/dh2323">Fluid Dynamics Simulation</Link>
             </p>
             <p className="App-slim">
-                <Link to="/kth/dh2650/blog">DH2650 Computer Game Design</Link>
+                <Link to="/kth/dh2650">Wanderful - 2D Fantasy Action Game</Link>
+            </p>
+            <p className="App-slim">
+                <Link to="/kth/dh2413">Nightmar - VR Horror Game</Link>
             </p>
         </div>
     );
@@ -50,6 +62,51 @@ function Blog({entries}) {
     return (
         <div>
             {posts}
+        </div>
+    );
+}
+
+function Dh2413() {
+    return (
+      <div className="App-page">
+          <p className="App-bigtext">
+            DH2413 Advanced Graphics and Interaction
+          </p>
+          <p className="App-slim">
+            In this course I along with a few other students created two games, Marball and Nightmar. Marball is a puzzle game using physical items and pivoting a table as controls, and Nightmar is a horror game played in VR, and optinally viewed by spectators on a screen. 
+          </p>
+          <p>
+             Marball was our first game and was developed to be used on a table with a build in screen that could recognize certain objects that was placed on it. We utilized this in addition to creating a stand where you could pivot the table and adding a phone with an accompanying app that acted as an accelerometer for the game. The game was inspired by the physical game labyrinth but in a more detailed virtual world and with tools such as turbines blowing the marble around, magnets and size modifying objects. The objects where items you would place on top of the table/screen that would affect the game world and utilize to get the marble from the start of each level to the finish.<br/>You can find the project website <a href="https://emma1565.wixsite.com/marball" target="_blank">here</a>.
+          </p>
+          <p>
+            Nightmar was the second game we created, and this time we developed it with VR in mind. But if you are multiple people together then everyone can participate, as spectators are given a view into the game world through security cameras that they view on a normal monitor, and through these security cameras they can warn the player of monsters lurking around the corners!<br/>You can check it out <a href="https://agi-nightmar.web.app/" target="_blank">here</a>!
+          </p>
+      </div>
+    );
+}
+
+function Dh2323() {
+    return (
+        <div className="App-page">
+            <p className="App-bigtext">
+              DH2323 Computer Graphics and Interaction
+            </p>
+            <p className="App-slim">
+              In this course I got an introduction to ray tracing, rasterizing and other techniques used in games, such as portals, bounding volumes for collision checking etc. I also made a project where I made a navier-stokes fluid dynamics simulation using C++ and SFML. Here is the <a href="https://github.com/pontusasp/fluid-simulation" target="_blank">GitHub Page</a> and the <a href="https://github.com/pontusasp/fluid-simulation/blob/master/blog.md" target="_blank">Development Blog</a>.
+            </p>
+        </div>
+    );
+}
+
+function Dh2650() {
+    return (
+        <div className="App-page">
+            <p className="App-bigtext">
+              DH2650 Computer Game Design
+            </p>
+            <p className="App-slim">
+              In this course I along with a few other students created a game with inspiration taken from hotline miami.<br/>Here you can find the <Link to="/kth/dh2650/blog">development blog</Link>, and the <a href="https://wanderfulgame.netlify.app/" target="_blank">project website</a>.
+            </p>
         </div>
     );
 }
