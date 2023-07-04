@@ -1,8 +1,10 @@
+import { Switch, Route, Link, useParams } from "react-router-dom";
 import React, {Component} from "react";
 import * as d3 from "d3";
 import './App.css';
 import {useEffect, useState} from "react";
 
+const url = "http://pontusasp.asuscomm.com:41312/";
 
 function InternetChart({id, data}) {
   const margin = {top: 0, right: 0, bottom: 0, left: 0};
@@ -142,61 +144,68 @@ function addDataPoint(list, line) {
   list.push(dataPoint);
 }
 
-function InternetStatus() {
+const fetchFile = async (url, filename, json=false) => {
+  try {
+    const address = url + filename;
+    const response = await fetch(address);
+    const content = await response.text();
+    if (json) {
+      return {filename: filename, content: JSON.parse(content)};
+    }
+    return {filename: filename, content: content};
+  } catch (error) {
+    console.error(`Error reading file ${filename}:`, error);
+    return "";
+  }
+};
 
-  const url = "http://pontusasp.asuscomm.com:41312/";
+const fetchFiles = async (filenames) => {
+  const filePromises = filenames.map(filename => fetchFile(url, `file/${filename}`));
+  const files = await Promise.all(filePromises);
+  files.sort((a, b) => b.filename.localeCompare(a.filename));
+  return files;
+};
+
+function processFile(file) {
+  let dataset = [];
+  const rawLines = file.content.split("\n");
+  const rawDate = rawLines[1].split(": ")[1];
+  const date = new Date(`${rawDate.substring(0, 10)} ${rawDate.substring(11)}`);
+  const lines = rawLines.filter(line => line.length > 0 && isDataPoint(line));
+  addDataPoint(dataset, lines[0]);
+  for (let i = 1; i < lines.length; i++) {
+    addDataPoint(dataset, lines[i]);
+  }
+  return {date: date, filename: file.filename, dataset: dataset};
+}
+
+const InternetGraph = ({date, filename, dataset}) => {
+  return <>
+    <div key={date} style={{border: '2px solid white', borderRadius: '1em', width: '80%', background: '#0005', margin: '0.5em', overflow: "hidden"}}>
+      <p>
+        <Link to={`/services/internetstatus/log/${filename}`}>Log {date.toLocaleDateString("sv-SE")} {date.toLocaleTimeString("sv-SE")}</Link>
+        <span> | </span>
+        <a href={`${url}${filename}`} target={'_blank'}>Dataset</a>
+      </p>
+      <InternetChart id="internet_chart" data={dataset}/>
+    </div>
+  </>;
+};
+
+
+function InternetStatusDisplayFull({files}) {
 
   const [loadingData, setLoadingData] = useState({value: 0, max: 0});
   const [data, setData] = useState([]);
 
-  const fetchFile = async (filename, json=false) => {
-    try {
-      const address = url + filename;
-      const response = await fetch(address);
-      const content = await response.text();
-      if (json) {
-        return {filename: filename, content: JSON.parse(content)};
-      }
-      return {filename: filename, content: content};
-    } catch (error) {
-      console.error(`Error reading file ${filename}:`, error);
-      return "";
-    }
-  };
-
   useEffect(() => {
-    const fetchFiles = async () => {
-      const response = await fetchFile("files", true);
-      console.log(`Response:`);
-      console.log(response);
-      const filenames = response.content.files ?? [];
-      setLoadingData({value: 0, max: filenames.length});
-      const filePromises = filenames.map(filename => fetchFile(`file/${filename}`));
-      const files = await Promise.all(filePromises);
-      files.sort((a, b) => b.filename.localeCompare(a.filename));
-      return files;
-    };
-
-    fetchFiles().then((files) => {
-      console.log(`Files:`);
-      console.log(files);
-      let sets = [];
-      files.forEach((file, i) => {
-        let dataset = [];
-        const rawLines = file.content.split("\n");
-        const rawDate = rawLines[1].split(": ")[1];
-        const date = new Date(`${rawDate.substring(0, 10)} ${rawDate.substring(11)}`);
-        const lines = rawLines.filter(line => line.length > 0 && isDataPoint(line));
-        addDataPoint(dataset, lines[0]);
-        for (let i = 1; i < lines.length; i++) {
-          addDataPoint(dataset, lines[i]);
-        }
-        sets.push({date: date, filename: file.filename, dataset: dataset});
-        console.log(`Loaded file ${i + 1} of ${files.length}`);
-        setLoadingData({value: i + 1, max: files.length});
-      });
-      setData(sets);
+    let sets = [];
+    files.forEach((file, i) => {
+      const set = processFile(file);
+      sets.push(set);
+      setLoadingData({value: i + 1, max: files.length});
     });
+    setData(sets);
   }, []);
 
   const progressBar = (value, max) => {
@@ -205,14 +214,8 @@ function InternetStatus() {
 
   const charts = (data) => {
     return <>
-      {data.map(({date, filename, dataset}) => {
-        return <>
-          <div key={date} style={{border: '2px solid white', borderRadius: '1em', width: '80%', background: '#0005', margin: '0.5em', overflow: "hidden"}}>
-            <p><a href={`${url}${filename}`} target={'_blank'}>Log {date.toLocaleDateString("sv-SE")} {date.toLocaleTimeString("sv-SE")}</a></p>
-            <InternetChart id="internet_chart" data={dataset}/>
-          </div>
-        </>;
-      })}
+      <Link to={"/services/internetstatus"}>Tillbaka till listan</Link>
+      {data.map(({date, filename, dataset}) => <InternetGraph key={date} date={date} filename={filename} dataset={dataset} />)}
     </>;
   }
 
@@ -223,12 +226,98 @@ function InternetStatus() {
     return charts(data);
   }
 
-  return (
+  return <>
+      {chartsLoader(loadingData)}
+  </>;
+}
+
+function InternetStatusList({filenames, ready}) {
+  const items = (files) => files.map((file) => {
+    return <li key={file} style={{flex: '0 0 auto'}}>
+      {ready? 
+      <Link to={`/services/internetstatus/log/${file}`}>
+        {file}
+      </Link>
+      : <span>{file}</span>}
+    </li>;
+  });
+
+  return <>
+    {ready? <Link to="/services/internetstatus/all">Visa alla loggar</Link> : <span>Visa alla loggar</span>}
+    <span>(kan ta några sekunder att ladda)</span>
+    <ol style={{textAlign: 'left', display: 'flex', flexDirection: 'column-reverse'}}>
+      {items(filenames)}
+    </ol>
+  </>;
+}
+
+function InternetStatusLog({files}) {
+  const { log } = useParams();
+
+  const file = files.filter((f) => f.filename.includes(log))[0];
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const set = processFile(file);
+    setData([set]);
+  }, []);
+
+  const charts = (data) => {
+    return <>
+      <Link to={"/services/internetstatus"}>Tillbaka till listan</Link>
+      {data.map(({date, filename, dataset}) => <InternetGraph key={date} date={date} filename={filename} dataset={dataset} />)}
+    </>;
+  }
+
+  return <>
+      {charts(data)}
+  </>;
+}
+
+function InternetStatus() {
+
+  const [filenames, setFilenames] = useState([]);
+  const [files, setFiles] = useState([]);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    fetchFile(url, "files", true).then((response) => {
+      const list = response.content.files;
+      list.sort((a, b) => a.localeCompare(b));
+      fetchFiles(list).then((fl) => {
+        setFiles(fl);
+      });
+      setFilenames(list);
+    });
+  }, []);
+
+  useEffect(() => {
+    const status = filenames.length > 0 && filenames.length === files.length;
+    if (ready !== status) {
+      setReady(status);
+    }
+  }, [filenames, files]);
+
+  const Loading = () => <span>Laddar ner loggar...</span>;
+  
+  return <>
     <header className="App-header">
       <p>Internetstatus Kungshamra 74A lgh 1002</p>
-      {chartsLoader(loadingData)}
+      <Switch>
+        <Route path="/services/internetstatus/all">
+          {ready? <InternetStatusDisplayFull files={files} /> : <Loading />}
+        </Route>
+        <Route path="/services/internetstatus/log/:log">
+          {ready? <InternetStatusLog files={files} /> : <Loading />}
+        </Route>
+        <Route path="/services/internetstatus">
+          {ready? <></> : <Loading />}
+          <InternetStatusList filenames={filenames} ready={ready} />
+        </Route>
+      </Switch>
     </header>
-  );
+  </>;
 }
 
 export default InternetStatus;
