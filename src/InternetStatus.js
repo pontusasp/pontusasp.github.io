@@ -5,6 +5,10 @@ import './App.css';
 import {useEffect, useState} from "react";
 
 const url = "http://pontusasp.asuscomm.com:41312/";
+// const url = "http://192.168.50.110:41312/";
+const localUrl = false;
+
+let loadingTime = new Date(Date.now());
 
 function InternetChart({id, data}) {
   const margin = {top: 0, right: 0, bottom: 0, left: 0};
@@ -26,23 +30,6 @@ function InternetChart({id, data}) {
           .domain([yMinValue, yMaxValue])
           .range([height, 0]);
 
-  // const getXAxis = (ref) => {
-  //     const xAxis = d3.axisBottom(getX);
-  //     // d3.select(ref).call(xAxis.tickFormat(d3.timeFormat("%M")));
-  //     d3.select(ref).call(xAxis.tickFormat(d3.timeFormat("%M")).tickValues(data.map((d) => d.sequence)));
-  // };
-  //
-  // const getYAxis = (ref) => {
-  //     const yAxis = d3.axisLeft(getY).tickSize(-width).tickPadding(7);
-  //     d3.select(ref).call(yAxis);
-  // }
-
-  // const linePath = d3
-  //         .line()
-  //         .x((d) => getX(d.sequence))
-  //         .y((d) => getY(d.time))
-  //         .curve(d3.curveMonotoneX)(data);
-
   const areaPath = d3
           .area()
           .x((d) => getX(d.sequence))
@@ -50,7 +37,6 @@ function InternetChart({id, data}) {
           .y1(() => getY(yMinValue - 1))
           .curve(d3.curveMonotoneX)(data);
 
-  // const downtime = data.filter((d) => !d.connected);
   const downtimeAreaPath = d3
           .area()
           .x((d) => getX(d.sequence))
@@ -59,25 +45,13 @@ function InternetChart({id, data}) {
           .curve(d3.curveMonotoneX)(data);
 
   return <>
-      <svg
-          id={id}
-          viewBox={`0 0 ${width} ${height}`}
-      >
-          {/*<g*/}
-          {/*    className="internet-chart-axis"*/}
-          {/*    ref={getYAxis}*/}
-          {/*/>*/}
-          {/*<g*/}
-          {/*    className="internet-chart-axis internet-chart-xaxis"*/}
-          {/*    ref={getXAxis}*/}
-          {/*    transform={`translate(0, ${height})`}*/}
-          {/*/>*/}
-
-          <path fill={color} d={areaPath} />
-          <path fill={"red"} d={downtimeAreaPath} opacity={0.3}/>
-          {/*<path strokeWidth={1} fill={"none"} stroke={color} d={linePath} />*/}
-
-      </svg>
+    <svg
+        id={id}
+        viewBox={`0 0 ${width} ${height}`}
+    >
+      <path fill={color} d={areaPath} />
+      <path fill={"red"} d={downtimeAreaPath} opacity={0.3}/>
+    </svg>
   </>;
 }
 
@@ -89,7 +63,7 @@ function isFailure(line) {
   return line.startsWith("From");
 }
 
-function decodeFailure(list, line) {
+function decodeFailure(line) {
   const parts = line.split(" ");
   let icmp_seq = parts[2];
   if (!icmp_seq.includes("=")) {
@@ -105,7 +79,7 @@ function decodeFailure(list, line) {
   return {connected: false, sequence: seq, time: time, message: line};
 }
 
-function decodeDataPoint(list, line) {
+function decodeDataPoint(line) {
   const parts = line.split(" ");
   let seq = parseInt(parts[5].split("=")[1]);
   let time = parseFloat(parts[7].split("=")[1]);
@@ -122,15 +96,21 @@ function decodeDataPoint(list, line) {
 }
 
 function emptyDataPoint(list) {
-    return {connected: false, sequence: list.at(-1).sequence + 1, time: 0.0, message: ""};
+    return {connected: false, sequence: (list.at(-1) ?? {sequence: 0}).sequence + 1, time: 0.0, message: ""};
 }
 
 function addDataPoint(list, line) {
   let dataPoint;
-  if (isFailure(line)) {
-    dataPoint = decodeFailure(list, line);
+  if (!line) {
+    if (list) {
+      return;
+    } else {
+      list.push(emptyDataPoint(list));
+    }
+  } else if (isFailure(line)) {
+    dataPoint = decodeFailure(line);
   } else {
-    dataPoint = decodeDataPoint(list, line);
+    dataPoint = decodeDataPoint(line);
   }
   let lastSequence = (list.at(-1) ?? {sequence: 0}).sequence;
   if (dataPoint.sequence < lastSequence) {
@@ -160,7 +140,7 @@ const fetchFile = async (url, filename, json=false) => {
 };
 
 const fetchFiles = async (filenames) => {
-  const filePromises = filenames.map(filename => fetchFile(url, `file/${filename}`));
+  const filePromises = filenames.map(filename => fetchFile(`${url}file/`, filename));
   const files = await Promise.all(filePromises);
   files.sort((a, b) => b.filename.localeCompare(a.filename));
   return files;
@@ -176,16 +156,25 @@ function processFile(file) {
   for (let i = 1; i < lines.length; i++) {
     addDataPoint(dataset, lines[i]);
   }
-  return {date: date, filename: file.filename, dataset: dataset};
+
+  let endDate = null;
+  let lastLine = rawLines.at(-2);
+  if (lastLine.includes('End time')) {
+    const rawEndDate = lastLine.split(": ")[1];
+    const endDateString = `${rawEndDate.substring(0, 10)} ${rawEndDate.substring(11)}`;
+    endDate = new Date(endDateString);
+  }
+
+  return {date: date, endDate: endDate, filename: file.filename, dataset: dataset};
 }
 
-const InternetGraph = ({date, filename, dataset}) => {
+const InternetGraph = ({date, endDate, filename, dataset}) => {
   return <>
     <div key={date} style={{border: '2px solid white', borderRadius: '1em', width: '80%', background: '#0005', margin: '0.5em', overflow: "hidden"}}>
       <p>
-        <Link to={`/services/internetstatus/log/${filename}`}>Log {date.toLocaleDateString("sv-SE")} {date.toLocaleTimeString("sv-SE")}</Link>
+        <Link to={`/services/internetstatus/log/${filename}`}>Log {date.toLocaleDateString("sv-SE")} {date.toLocaleTimeString("sv-SE")} - {(endDate??loadingTime).toLocaleTimeString("sv-SE")}</Link>
         <span> | </span>
-        <a href={`${url}${filename}`} target={'_blank'}>Dataset</a>
+        <a href={`${url}file/${filename}`} target={'_blank'}>Dataset</a>
       </p>
       <InternetChart id="internet_chart" data={dataset}/>
     </div>
@@ -215,7 +204,7 @@ function InternetStatusDisplayFull({files}) {
   const charts = (data) => {
     return <>
       <Link to={"/services/internetstatus"}>Tillbaka till listan</Link>
-      {data.map(({date, filename, dataset}) => <InternetGraph key={date} date={date} filename={filename} dataset={dataset} />)}
+      {data.map(({date, endDate, filename, dataset}) => <InternetGraph key={date} date={date} endDate={endDate} filename={filename} dataset={dataset} />)}
     </>;
   }
 
@@ -266,7 +255,7 @@ function InternetStatusLog({files}) {
   const charts = (data) => {
     return <>
       <Link to={"/services/internetstatus"}>Tillbaka till listan</Link>
-      {data.map(({date, filename, dataset}) => <InternetGraph key={date} date={date} filename={filename} dataset={dataset} />)}
+      {data.map(({date, endDate, filename, dataset}) => <InternetGraph key={date} date={date} endDate={endDate} filename={filename} dataset={dataset} />)}
     </>;
   }
 
@@ -297,6 +286,7 @@ function InternetStatus() {
     if (ready !== status) {
       setReady(status);
     }
+    loadingTime = new Date(Date.now());
   }, [filenames, files]);
 
   const Loading = () => <span>Laddar ner loggar...</span>;
@@ -304,6 +294,7 @@ function InternetStatus() {
   return <>
     <header className="App-header">
       <p>Internetstatus Kungshamra 74A lgh 1002</p>
+      {localUrl? <p style={{color: 'red', fontWeight: 'bold'}}>VARNING: Använder lokal adress för nedladdning, ändra till publik IP!</p> : <></>}
       <Switch>
         <Route path="/services/internetstatus/all">
           {ready? <InternetStatusDisplayFull files={files} /> : <Loading />}
