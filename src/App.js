@@ -9,6 +9,7 @@ import About from './About';
 import T30 from './T30';
 import LostAndFound from './LostAndFound';
 import Portfolio from './Portfolio';
+import InternetStatus from './InternetStatus';
 
 class App extends React.Component {
 
@@ -20,40 +21,47 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <div className="App-content">
-            <Switch>
-              <Route path="/tove/30">
-                <T30 />
-              </Route>
-              <Route path="/apps">
-                <Apps />
-              </Route>
-              <Route path="/kth">
-                <Kth />
-              </Route>
-              <Route path="/links">
-                <Links />
-              </Route>
-              <Route path="/portfolio">
-                <Portfolio />
-              </Route>
-              <Route path={["/lost-and-found", "/lostandfound"]}>
-                <LostAndFound />
-              </Route>
-              <Route path="/">
-                <About />
-              </Route>
-            </Switch>
-          </div>
-          <footer className="App-footer">
-            <div className="App-menu">
-            <Link to="/"><img src={logo} className="App-logo" alt="App-logo" /></Link>
-              <div><Link to="/apps">Apps</Link></div>
-              <div><Link to="/portfolio">Portfolio</Link></div>
-              <div><Link to="/kth">KTH</Link></div>
-              <div><Link to="/links">Links</Link></div>
-            </div>
-          </footer>
+          <Switch>
+            <Route path="/services/internetstatus">
+              <InternetStatus />
+            </Route>
+            <Route path="/">
+              <div className="App-content">
+                <Switch>
+                  <Route path="/tove/30">
+                    <T30 />
+                  </Route>
+                  <Route path="/apps">
+                    <Apps />
+                  </Route>
+                  <Route path="/kth">
+                    <Kth />
+                  </Route>
+                  <Route path="/links">
+                    <Links />
+                  </Route>
+                  <Route path="/portfolio">
+                    <Portfolio />
+                  </Route>
+                  <Route path={["/lost-and-found", "/lostandfound"]}>
+                    <LostAndFound />
+                  </Route>
+                  <Route path="/">
+                    <About />
+                  </Route>
+                </Switch>
+              </div>
+              <footer className="App-footer">
+                <div className="App-menu">
+                <Link to="/"><img src={logo} className="App-logo" alt="App-logo" /></Link>
+                  <div><Link to="/apps">Apps</Link></div>
+                  <div><Link to="/portfolio">Portfolio</Link></div>
+                  <div><Link to="/kth">KTH</Link></div>
+                  <div><Link to="/links">Links</Link></div>
+                </div>
+              </footer>
+            </Route>
+          </Switch>
         </Router>
       </div>
     );
