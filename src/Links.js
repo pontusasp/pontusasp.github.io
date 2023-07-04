@@ -12,7 +12,7 @@ function Links() {
                 }}><span style={{paddingRight:'0.5em'}}>- Check out my </span><img src="img/GitHub-Mark-Light-64px.png" style={{height:'1.5em'}}/>&nbsp;<span>GitHub</span></a>
             </p>
             <p>
-                <a href="https://www.linkedin.com/in/pontus-asp-a98a82157/" style={{
+                <a href="https://www.linkedin.com/in/pontusasp/" style={{
                     display: 'flex',
                     justifyContent: 'center',
                     textDecoration: 'none',

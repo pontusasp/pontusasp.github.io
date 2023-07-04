@@ -15,6 +15,9 @@ function Kth() {
             <Route path="/kth/dh2650">
                 <Dh2650 />
             </Route>
+            <Route path="/kth/dh2321">
+                <Dh2321 />
+            </Route>
             <Route path="/kth">
                 <CourseList />
             </Route>
@@ -36,6 +39,9 @@ function CourseList() {
             </p>
             <p className="App-slim">
                 <Link to="/kth/dh2413">Nightmar - VR Horror Game</Link>
+            </p>
+            <p className="App-slim">
+                <Link to="/kth/dh2321">MovieMap - Movie Economics Visualization</Link>
             </p>
         </div>
     );
@@ -106,6 +112,20 @@ function Dh2650() {
             </p>
             <p className="App-slim">
               In this course I along with a few other students created a game with inspiration taken from hotline miami.<br/>Here you can find the <Link to="/kth/dh2650/blog">development blog</Link>, and the <a href="https://wanderfulgame.netlify.app/" target="_blank">project website</a>.
+            </p>
+        </div>
+    );
+}
+
+function Dh2321() {
+    return (
+        <div className="App-page">
+            <p className="App-bigtext">
+              DH2321 Information Visualization
+            </p>
+            <p className="App-slim">
+              During this course I learned how to use <a href="https://d3js.org/" target="_blank">D3.js</a> (in combination with React) to be able to visualize large amounts of data. In the course we learned some theory about visualization but I would argue that where I learned the most was during the project, which is when we learned to use D3.js. The project was done in teams of 5, we made a website that visualizes the economics of different movie titles so that you can easily find movies with a lot of revenue, while having a low budget etc. You can find the page here:<br/>
+        <a href="https://moviemap-vis.web.app/" target="_blank">https://moviemap-vis.web.app/</a>
             </p>
         </div>
     );

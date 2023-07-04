@@ -7,6 +7,7 @@ import Kth from './Kth';
 import Links from './Links';
 import About from './About';
 import T30 from './T30';
+import LostAndFound from './LostAndFound';
 import Portfolio from './Portfolio';
 
 class App extends React.Component {
@@ -35,6 +36,9 @@ class App extends React.Component {
               </Route>
               <Route path="/portfolio">
                 <Portfolio />
+              </Route>
+              <Route path={["/lost-and-found", "/lostandfound"]}>
+                <LostAndFound />
               </Route>
               <Route path="/">
                 <About />
