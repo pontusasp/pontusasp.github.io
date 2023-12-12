@@ -1,5 +1,3 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 /*
 1. Coklad med papper i med en URL på + första koden
     a. På hemsidan finns det endast en tom textruta och en submitknapp
@@ -46,7 +44,7 @@ function exchange() {
         default:
             const date1 = new Date("01/26/2022");
             const date2 = new Date();
-            
+
             const dt = date2.getTime() - date1.getTime();
             const dd = Math.floor(dt / (1000 * 3600 * 24));
             let heart = '❤️ ';
@@ -70,14 +68,26 @@ function exchange() {
     }
 }
 
-function T30() {
+function T30Component() {
     return (
         <div className="App-page">
-            <div>
-                <input id="t30" type="text" />
-                <input type="button" onClick={exchange} value="OK" />
+            <div className={"flex flex-col gap-2"}>
+                <input className={"text-black"} id="t30" type="text"/>
+                <input className={"bg-gray-300 border-1 text-black rounded border-black"} type="button"
+                       onClick={exchange} value="OK"/>
+                <div id="placeholder"></div>
             </div>
-            <div id="placeholder"></div>
+        </div>
+    );
+}
+
+function T30() {
+
+    return (
+        <div className={"app-container flex flex-col min-h-screen bg-gradient-to-br from-black to-violet-950"}>
+            <main className={"flex-grow flex items-center justify-center text-violet-50"}>
+                <T30Component />
+            </main>
         </div>
     );
 }
