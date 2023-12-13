@@ -61,14 +61,20 @@ const projects = [
     {
         title: "TSP Visualizer",
         description: <div className={"flex flex-col gap-4"}><span>This is a visualizer for solutions to the TSP (short for travelling salesperson) problem where we have a set of nodes and need to construct edges between the nodes to form a Hamiltonian cycle while minimizing the total length of the edges.</span><span>The visualizer takes in both the graph and the solution as input. It expects the first line to contain the number of nodes in the graph and in the following N lines it expects the X Y position of each node (space separated, floats allowed). After reading those N lines it expects N more lines, this time being the indices of the nodes in the order of how the nodes should be traversed to form a Hamiltonian path (last index connects to the first one to create a cycle).</span></div>,
-        image: "/img/tsp-visualizer/blue-filled.png",
+        custom: <div className={"grid"}>
+            <img className={"col-start-1 row-start-1"} src={"/img/tsp-visualizer/blue.png"}/>
+            <img className={"col-start-1 row-start-1 opacity-100 transition-opacity duration-500 hover:opacity-0"} src={"/img/tsp-visualizer/blue-filled.png"}/>
+        </div>,
         link: "/apps/tsp-visualizer",
         button: "View on GitHub",
     },
     {
         title: "DustSDL2",
         description: <div className={"flex flex-col gap-4"}><span>DustSDL2 is a version of a simple game I have made many times, initially called Dust. The game is simply a gravity simulation on many small particles having no collision with each other, using additive coloring to make high density areas brighter than others.</span><span>The first time I created this game it was simply because I wanted to create a nice looking effect, I made it in Java and the drawing was done using Swing. It was quite slow so I tried to optimize it by recreating it and simplifying the math etc. I also ported it to Android using the LibGDX library, I also programmed it in C#/Unity, C++/OpenGL and finally the version I am most happy with: C++ using SDL2, this version.</span></div>,
-        image: "/img/DustSDL2/dust-blue.png",
+        custom: <div className={"grid"}>
+            <img className={"col-start-1 row-start-1"} src={"/img/DustSDL2/dust-green.png"}/>
+            <img className={"col-start-1 row-start-1 opacity-100 transition-opacity duration-500 hover:opacity-0"} src={"/img/DustSDL2/dust-blue.png"}/>
+        </div>,
         link: "",
         button: "View on GitHub",
     },
