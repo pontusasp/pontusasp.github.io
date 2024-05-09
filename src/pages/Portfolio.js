@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Project from "../components/Project";
 
 const projects = [
@@ -116,12 +115,14 @@ const projects = [
         <img
           className={"col-start-1 row-start-1"}
           src={"/img/tsp-visualizer/blue.png"}
+          alt={"TSP Visualizer"}
         />
         <img
           className={
             "col-start-1 row-start-1 opacity-100 transition-opacity duration-500 hover:opacity-0"
           }
           src={"/img/tsp-visualizer/blue-filled.png"}
+          alt={"TSP Visualizer"}
         />
       </div>
     ),
@@ -154,12 +155,14 @@ const projects = [
         <img
           className={"col-start-1 row-start-1"}
           src={"/img/DustSDL2/dust-green.png"}
+          alt={"DustSDL2"}
         />
         <img
           className={
             "col-start-1 row-start-1 opacity-100 transition-opacity duration-500 hover:opacity-0"
           }
           src={"/img/DustSDL2/dust-blue.png"}
+          alt={"DustSDL2"}
         />
       </div>
     ),

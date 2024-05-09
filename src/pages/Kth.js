@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import About from "./About";
 import { Link } from "react-router-dom";
 
 const projects = [
@@ -16,6 +14,7 @@ const projects = [
           className={"underline"}
           href="https://github.com/pontusasp/fluid-simulation"
           target="_blank"
+          rel="noreferrer"
         >
           GitHub Page
         </a>{" "}
@@ -24,6 +23,7 @@ const projects = [
           className={"underline"}
           href="https://github.com/pontusasp/fluid-simulation/blob/master/blog.md"
           target="_blank"
+          rel="noreferrer"
         >
           Development Blog
         </a>

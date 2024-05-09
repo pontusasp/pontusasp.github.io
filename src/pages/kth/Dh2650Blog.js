@@ -97,7 +97,7 @@ const blogEntries = [
         </p>
         <div className={"flex flex-col items-center gap-4"}>
           <h4 className={"font-bold"}>Wanderful</h4>
-          <img src="/img/wanderful-icon.png" />
+          <img src="/img/wanderful-icon.png" alt="wanderful" />
         </div>
         <p>
           When making the presentation we discussed how we would pitch our game
@@ -202,9 +202,18 @@ const blogEntries = [
           result!
         </p>
         <div className={"grid grid-cols-3"}>
-          <img src="/img/blog/dh2650/first_character_running.gif" />
-          <img src="/img/blog/dh2650/first_character_basic_spell.gif" />
-          <img src="/img/blog/dh2650/first_character_wand_spell.gif" />
+          <img
+            src="/img/blog/dh2650/first_character_running.gif"
+            alt="running character"
+          />
+          <img
+            src="/img/blog/dh2650/first_character_basic_spell.gif"
+            alt="basic spell"
+          />
+          <img
+            src="/img/blog/dh2650/first_character_wand_spell.gif"
+            alt="wand spell"
+          />
         </div>
       </>
     ),
@@ -223,8 +232,8 @@ const blogEntries = [
           like.
         </p>
         <div className={"grid grid-cols-2 gap-4"}>
-          <img src="/img/blog/dh2650/demo1_2.png" />
-          <img src="/img/blog/dh2650/demo1_1.png" />
+          <img src="/img/blog/dh2650/demo1_2.png" alt="game demo" />
+          <img src="/img/blog/dh2650/demo1_1.png" alt="game demo" />
         </div>
       </>
     ),
@@ -364,6 +373,7 @@ const blogEntries = [
           <img
             style={{ width: "49%" }}
             src="/img/blog/dh2650/fatvsnormal.png"
+            alt="fat vs normal wizard"
           />
         </div>
       </>
@@ -381,17 +391,26 @@ const blogEntries = [
           since last meeting that he wanted to show us. However it turned out
           the website he had found mostly hosted pirated assets so I quickly
           found some alternative sites that we looked at instead (
-          <a href="https://craftpix.net/freebies/" target="_blank">
+          <a
+            href="https://craftpix.net/freebies/"
+            target="_blank"
+            rel="noreferrer"
+          >
             https://craftpix.net/freebies/
           </a>{" "}
           and{" "}
-          <a href="https://itch.io/game-assets/free" target="_blank">
+          <a
+            href="https://itch.io/game-assets/free"
+            target="_blank"
+            rel="noreferrer"
+          >
             https://itch.io/game-assets/free
           </a>
           ). We found a nice looking pack that we settled with here:{" "}
           <a
             href="https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture/?num=1&count=99&sq=top%20down&pos=5"
             target="_blank"
+            rel="noreferrer"
           >
             https://craftpix.net/freebies/free-zombie-tds-tilesets-buildings-and-furniture/?num=1&count=99&sq=top%20down&pos=5
           </a>
@@ -428,6 +447,7 @@ const blogEntries = [
                 animation: "HueRotation 4s linear infinite",
               }}
               src="/img/blog/dh2650/wizard_dead_clothes.png"
+              alt="dead wizard"
             />
             <img
               style={{
@@ -436,6 +456,7 @@ const blogEntries = [
                 top: "0",
               }}
               src="/img/blog/dh2650/wizard_dead_skin.png"
+              alt="dead wizard"
             />
           </div>
         </div>
@@ -565,6 +586,7 @@ const blogEntries = [
                   animation: "HueRotation 4s linear infinite",
                 }}
                 src="/img/blog/dh2650/enemy_primal.png"
+                alt="mutant wizard"
               />
               <img
                 style={{
@@ -573,6 +595,7 @@ const blogEntries = [
                   top: "0",
                 }}
                 src="/img/blog/dh2650/enemy_primal_skin.png"
+                alt="mutant wizard"
               />
             </div>
             <div
@@ -588,6 +611,7 @@ const blogEntries = [
                   animation: "HueRotation 4s linear infinite",
                 }}
                 src="/img/blog/dh2650/enemy_primal_dead.png"
+                alt="dead mutant wizard"
               />
               <img
                 style={{
@@ -596,6 +620,7 @@ const blogEntries = [
                   top: "0",
                 }}
                 src="/img/blog/dh2650/enemy_primal_dead_skin.png"
+                alt="dead mutant wizard"
               />
             </div>
           </div>
@@ -787,6 +812,7 @@ const blogEntries = [
             className={"underline text-blue-600"}
             href="https://wanderfulgame.netlify.app/"
             target="_blank"
+            rel="noreferrer"
           >
             https://wanderfulgame.netlify.app/
           </a>

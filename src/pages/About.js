@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-export default function () {
+export default function About() {
   return (
     <div className={"flex flex-col gap-4 items-center sm:m-8"}>
       <div>
         <img
           width={323}
           height={323}
-          alt="Photo of Pontus"
+          alt="Pontus"
           className={"rounded-full shadow-lg shadow-violet-950/20"}
           src={"/img/pontusasp.jpg"}
         />

@@ -55,14 +55,14 @@ function exchange() {
       for (let i = 0; i < dd; i++) hearts += heart;
       hearts = hearts.trim().toLowerCase();
 
-      if (txt == dd || txt == dd + 1) {
+      if (txt === dd || txt === dd + 1) {
         ph.innerHTML =
           "Jaa, och många fler ska det bli!!!<br/>Nästa kod:<br/>" + hearts;
-      } else if (txt == hearts) {
+      } else if (txt === hearts) {
         ph.innerHTML =
           "<b>N 59° 21.900 E 018° 05.037</b><br/><br/>Nästa kod: <i>Peter LeMarc</i>";
       } else {
-        if (txt != "hej") {
+        if (txt !== "hej") {
           ph.innerHTML = "🤔";
         } else {
           ph.innerHTML = ":D";
