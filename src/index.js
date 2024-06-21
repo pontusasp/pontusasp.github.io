@@ -8,7 +8,7 @@ import Portfolio from "./pages/Portfolio";
 import Kth from "./pages/Kth";
 import Apps from "./pages/Apps";
 import T30 from "./pages/T30";
-import RedPainterPrivacyPolicy from "./pages/apps/RedPainterPrivacyPolicy";
+import RedPainterPrivacyPolicy from "./pages/apps/the-red-painter/RedPainterPrivacyPolicy";
 import Root from "./Root";
 import Dh2650Blog from "./pages/kth/Dh2650Blog";
 import LostAndFound from "./pages/LostAndFound";
