@@ -8,6 +8,7 @@ import Portfolio from "./pages/Portfolio";
 import Kth from "./pages/Kth";
 import Apps from "./pages/Apps";
 import T30 from "./pages/T30";
+import T32 from "./pages/t32/T32";
 import RedPainterPrivacyPolicy from "./pages/apps/RedPainterPrivacyPolicy";
 import Root from "./Root";
 import Dh2650Blog from "./pages/kth/Dh2650Blog";
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "tove/30", element: <T30 /> },
+  { path: "tove/32", element: <T32 /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
