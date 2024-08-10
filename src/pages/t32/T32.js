@@ -56,7 +56,7 @@ function T32() {
   return (
     <div
       className={
-        "app-container flex flex-col min-h-screen bg-gradient-to-br from-black to-slate-950"
+        "app-container flex flex-col min-h-screen bg-black"
       }
     >
       <main
