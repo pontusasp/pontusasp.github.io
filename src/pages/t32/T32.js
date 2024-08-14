@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function getWindowDimensions() {
@@ -25,7 +26,7 @@ function useWindowDimensions() {
   return windowDimensions;
 }
 
-function GameComponent() {
+function GameComponent({setPlayGame}) {
   const { height, width } = useWindowDimensions();
   const scaleX = width / 800;
   const scaleY = height / 800;
@@ -127,10 +128,21 @@ function T32Component({
       answer: "MHYTSJ",
     },
     {
+      text: <Link className="underline" to="/tove/32/game" target="_blank" rel="noopener noreferrer">Nu tror jag pikachu vill leka!</Link>,
+      answer: "KLGTDS",
+    },
+    {
       // Pärm YGHEQM
-      text: "Vore nog skönt att sitta i soffan medans du funderar på nästa steg...",
+      text: "Du kanske satt i soffan när du klarade dig ända hit?",
       answer: "YGHEQM",
     },
+    {
+      text: "Grattis igen älskling <3",
+      success: "Du klarade dig till slutet 😎",
+    },
+    {
+      text: "Här kommer spelet igen bara för skojs skull <3",
+    }
   ];
   const lastPuzzleState = puzzle.length - 1;
   
@@ -140,7 +152,7 @@ function T32Component({
   };
   
   const nextStep = () => {
-    if (puzzleState === lastPuzzleState) {
+    if (puzzleState === lastPuzzleState || puzzle[puzzleState].playGame) {
       setPlayGame(true);
     } else {
       if (!showSuccess && puzzle[puzzleState].success) {
@@ -187,15 +199,14 @@ function T32Component({
           type="submit"
           value="OK"
        />
-        <div id="placeholder"></div>
       </form>
     </div>
   );
 }
 
-function T32() {
-  const [playGame, setPlayGame] = useState(false);
-  const [transitionToGame, setTransitionToGame] = useState(false);
+function T32({playGame}) {
+  const [playGameState, setPlayGame] = useState(playGame);
+  const [transitionToGame, setTransitionToGame] = useState(playGame);
   
   useEffect(() => {
     if (transitionToGame) {
@@ -215,7 +226,7 @@ function T32() {
           (transitionToGame ? " bg-black" : "bg-transparent")
         }
       >
-      { transitionToGame ? (playGame ? <GameComponent /> : undefined) : <T32Component setPlayGame={setTransitionToGame} /> }
+      { transitionToGame ? (playGameState ? <GameComponent setPlayGame={setTransitionToGame} /> : undefined) : <T32Component setPlayGame={setTransitionToGame} /> }
       </main>
     </div>
   );

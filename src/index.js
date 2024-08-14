@@ -73,7 +73,8 @@ const router = createBrowserRouter([
     ],
   },
   { path: "tove/30", element: <T30 /> },
-  { path: "tove/32", element: <T32 /> },
+  { path: "tove/32/game", element: <T32 playGame={true} /> },
+  { path: "tove/32", element: <T32 playGame={false} /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
