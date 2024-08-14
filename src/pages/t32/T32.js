@@ -72,7 +72,7 @@ function GameComponent({setPlayGame}) {
  * 2. Pikachu fjäril > Bakom pikachuburkarna
  * 3. Choklad ballong > Vid tekannan
  * 4. Ultra Pro > Bakom magic-påsen vid bokhyllan
- * 5. Choklad Hjärta > Låda i hatthyllan
+ * 5. Choklad Hjärta > Under sängen
  * 6. Pikachu ballong > Uppe på lilla hyllan
  * 7. Pärm > Bakom soffan
  * 
@@ -104,27 +104,29 @@ function T32Component({
     },
     {
       // Pikachu NMVHST
-      text: "Det verkar vara någon som busar med pikachusarna i hyllan?",
+      text: "Jag har fått lite hjälp av två gulliga gula vänner <3",
       answer: "NMVHST",
+      success: "⚡️⚡️⚡️",
     },
     {
       // Choklad (vit) HNBNNY
-      text: "Vid en varm och gosig törstsläckare.",
+      text: "Nu när vi har så många små pikachus kanske vi ska fira med en fest lik den i Alice i underlandet!",
       answer: "HNBNNY",
+      success: "Gobble gobble 🫖 🍫",
     },
     {
       // Ultra Pro JMNSYQ
-      text: "Ska vi spela magic någon dag? <3",
+      text: "När man fikar kan det ju vara kul att spela lite spel, vissa är lite populärare än andra, särskilt inom ITK.",
       answer: "JMNSYQ",
     },
     {
       // Chokladhjärta LMLMUI
-      text: "Det kan vara bra att kolla här när det blir lite kallare ute...",
+      text: "Nästa ledtråd har tagit lite inspiration från Mingus med vart man kan gömma sig <3",
       answer: "LMLMUI",
     },
     {
       // Pikachu med ballonger MHYTSJ
-      text: "Det låter lite som att det fortfarande är någon som busar med alla pikachu's...",
+      text: "Oj! Det finns rykten om att Pikachusarna har gömt ännu fler skatter!",
       answer: "MHYTSJ",
     },
     {
@@ -133,12 +135,12 @@ function T32Component({
     },
     {
       // Pärm YGHEQM
-      text: "Du kanske satt i soffan när du klarade dig ända hit?",
+      text: "Du kanske satt i soffan när du klarade dig ända hit..? 😎",
       answer: "YGHEQM",
     },
     {
       text: "Grattis igen älskling <3",
-      success: "Du klarade dig till slutet 😎",
+      success: "Du klarade dig till slutet ❤️",
     },
     {
       text: "Här kommer spelet igen bara för skojs skull <3",
@@ -185,7 +187,7 @@ function T32Component({
   return (
     <div className="App-page">
       <form
-        className={"flex flex-col gap-2 transition-all " + (wrongAnswer ? "error-shake" : "")}
+        className={"flex flex-col gap-2 mx-8 transition-all " + (wrongAnswer ? "error-shake" : "")}
         style={ wrongAnswer ? { color: "red" } : {} }
         onSubmit={e => {
           e.preventDefault();
