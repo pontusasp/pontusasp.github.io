@@ -115,28 +115,29 @@ function T32Component({
       success: "Gobble gobble 🫖 🍫",
     },
     {
-      // Ultra Pro JMNSYQ
-      text: "När man fikar kan det ju vara kul att spela lite spel, vissa är lite populärare än andra, särskilt inom ITK.",
-      answer: "JMNSYQ",
-    },
-    {
       // Chokladhjärta LMLMUI
       text: "Nästa ledtråd har tagit lite inspiration från Mingus med vart man kan gömma sig <3",
       answer: "LMLMUI",
     },
     {
-      // Pikachu med ballonger MHYTSJ
-      text: "Oj! Det finns rykten om att Pikachusarna har gömt ännu fler skatter!",
-      answer: "MHYTSJ",
+      // Ultra Pro JMNSYQ
+      text: "Om man sitter och fikar utomhus kan det vara bra att leta här om det blir lite kyligt...",
+      //text: "När man fikar kan det ju vara kul att spela lite spel, vissa är lite populärare än andra, särskilt inom ITK.",
+      answer: "JMNSYQ",
     },
     {
-      text: <Link className="underline" to="/tove/32/game" target="_blank" rel="noopener noreferrer">Nu tror jag pikachu vill leka!</Link>,
+      text: <Link className="underline" to="/tove/32/game" target="_blank" rel="noopener noreferrer">Nu vill pikachu leka!</Link>,
       answer: "KLGTDS",
     },
     {
       // Pärm YGHEQM
       text: "Du kanske satt i soffan när du klarade dig ända hit..? 😎",
       answer: "YGHEQM",
+    },
+    {
+      // Pikachu med ballonger MHYTSJ
+      text: "Oj! Det finns rykten om att pikachusarna har hittat ännu fler skatter!",
+      answer: "MHYTSJ",
     },
     {
       text: "Grattis igen älskling <3",
