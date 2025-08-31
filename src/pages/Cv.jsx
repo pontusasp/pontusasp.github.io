@@ -71,14 +71,21 @@ function Projects({skip, length}) {
     return <div className="flex flex-col gap-12 p-12">{p}</div>;
 }
 
-function Period({ title, date, body, links }) {
-    const child = <div className="flex flex-col gap-4">
+function Period({ title, date, skills, body, links }) {
+    if (skills) {
+        skills = skills.slice();
+        for (let i = 0; i < skills.length - 1; i += 2) {
+            skills.splice(i + 1, 0, <>&bull;</>);
+        }
+    }
+    const child = <div className="flex flex-col gap-3">
         <div>
             <div className="flex justify-between gap-4 border-b border-gray-400 pb-1">
                 <span>{title}</span>
                 <span>{date}</span>
             </div>
         </div>
+        <div className={"flex gap-2 text-gray-600 " + ((skills?.length / 2) >= 4 ? "justify-between" : "")}>{skills ? skills.map((skill) => <span>{skill}</span>) : undefined}</div>
         <span className="">{body}</span>
         {links ? links.map((link) => <span>{link}</span>) : undefined}
     </div>;
@@ -193,6 +200,12 @@ function getCvData() {
             body: <></>,
         },
         {
+            title: "Master Thesis: Hydraulic Erosion",
+            date: "Mars 2023 - Feb 2024",
+            skills: ["Rust", "Macroquad", "Egui"],
+            body: <></>,
+        },
+        {
             title: "Skry",
             date: "Februari 2024 - Nu",
             body: <></>,
@@ -205,11 +218,10 @@ function getCvData() {
         {
             title: "SEB (Konsult via Skry)",
             date: "Juni 2024 - Nu",
+            skills: [".NET/C#", "IBM MQ", "Kafka", "Google PubSub", "REST"],
             body: <>
                 Integratör och Fullstack-Utvecklare hos SEB.
-                Via min integratörsroll så har jag jobbat flitigt med
-                få olika system att kunna kommunicera med varandra över
-                olika protokoll, så som IBM MQ, Kafka, Google PubSub, REST.
+                Via min integratörsroll så har jag jobbat flitigt med tekniker så som IBM MQ, Kafka, Google PubSub, REST.
                 Dessa applikationer har skrivits i C#/.NET.
                 Jag har även jobbat med React/TypeScript och Google Kubernetes i GCP.
             </>,
