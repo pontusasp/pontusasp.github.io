@@ -5,7 +5,7 @@ function Cv() {
         <div className="grid justify-center bg-gray-500 p-4">
             <div className="a4-page bg-white border-blue-800 grid grid-cols-3">
                 <div className="col-span-1"><Header /></div>
-                <div className="col-span-2"><Projects /></div>
+                <div className="col-span-2"><Projects skip={0} length={4} /></div>
             </div>
             <div className="a4-page border mt-4"></div>
         </div>
@@ -19,7 +19,7 @@ function Header() {
         </div>
         <div className="text-2xl font-bold">Pontus Asp</div>
         <div className="text-lg mt-2">Full-Stack Utvecklare</div>
-        <div className="text-md mt-12">
+        <div className="text-md mt-8">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-[1em] inline mr-2 size-5">
                 <path fillRule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clipRule="evenodd" />
             </svg>
@@ -52,18 +52,19 @@ function Header() {
         <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Favoritspråk</div>
         <ol className="list-decimal list-inside">
             <li>Rust</li>
-            <li>TypeScript</li>
             <li>Java</li>
+            <li>Python</li>
             <li>C/C++</li>
+            <li>TypeScript</li>
         </ol>
     </div>;
 }
 
-function Projects(skip, length) {
+function Projects({skip, length}) {
     const periods = getCvData();
     periods.reverse();
 
-    const p = periods.map(
+    const p = periods.slice(skip, skip + length).map(
         (params) => <Period {...params} />
     );
 
@@ -184,12 +185,34 @@ function getCvData() {
             </div>,
         },
         {
-            title: "Rödfärgarna Mellansverige AB",
-            date: "2016 - 2017"
+            title: <div className="align-bottom">Rödfärgarna Mellansverige AB</div>,
+            date: <>
+            <div className="text-right">2016 - 2017</div>
+            <div>Deltid 2017 - 2024</div>
+            </>,
+            body: <></>,
         },
         {
-            title: "Rödfärgarna Mellansverige AB",
-            date: "Part-time 2017 - 2024"
+            title: "Skry",
+            date: "Februari 2024 - Nu",
+            body: <></>,
+        },
+        {
+            title: "SAMI (Konsult via Skry)",
+            date: "Mars 2024 - Juni 2024",
+            body: <></>,
+        },
+        {
+            title: "SEB (Konsult via Skry)",
+            date: "Juni 2024 - Nu",
+            body: <>
+                Integratör och Fullstack-Utvecklare hos SEB.
+                Via min integratörsroll så har jag jobbat flitigt med
+                få olika system att kunna kommunicera med varandra över
+                olika protokoll, så som IBM MQ, Kafka, Google PubSub, REST.
+                Dessa applikationer har skrivits i C#/.NET.
+                Jag har även jobbat med React/TypeScript och Google Kubernetes i GCP.
+            </>,
         },
     ];
 
