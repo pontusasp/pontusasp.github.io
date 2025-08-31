@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Kth from "./pages/Kth";
+import Cv from "./pages/Cv";
 import Apps from "./pages/Apps";
 import T30 from "./pages/T30";
 import T32 from "./pages/t32/T32";
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         element: <Dh2650Blog />,
       },
     ],
+  },
+  {
+    path: "cv",
+    element: <Cv />
   },
   { path: "tove/30", element: <T30 /> },
   { path: "tove/32/game", element: <T32 playGame={true} /> },

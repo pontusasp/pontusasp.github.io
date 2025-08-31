@@ -16,6 +16,14 @@ code {
     monospace;
 }
 
+.a4-width, .a4-page {
+  width: 210mm;
+}
+
+.a4-height, .a4-page {
+  height: 297mm;
+}
+
 /* Used in DH2650 */
 @keyframes HueRotation {
   from {

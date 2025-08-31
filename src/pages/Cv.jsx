@@ -1,6 +1,99 @@
-import Card from "../components/Card";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function Cv() {
+    return <>
+        <div className="grid justify-center bg-gray-500 p-4">
+            <div className="a4-page bg-white border-blue-800 grid grid-cols-3">
+                <div className="col-span-1"><Header /></div>
+                <div className="col-span-2"><Projects /></div>
+            </div>
+            <div className="a4-page border mt-4"></div>
+        </div>
+    </>;
+}
+
+function Header() {
+    return <div className="bg-gray-200 a4-height h-64 px-8 flex flex-col">
+        <div className="py-8 self-center">
+            <img src="/img/pontusasp.jpg" alt="Photo of Pontus Asp" className="rounded-full w-48 p-1 border border-blue-800 border-2" />
+        </div>
+        <div className="text-2xl font-bold">Pontus Asp</div>
+        <div className="text-lg mt-2">Full-Stack Utvecklare</div>
+        <div className="text-md mt-12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-[1em] inline mr-2 size-5">
+                <path fillRule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clipRule="evenodd" />
+            </svg>
+            Kungshamra 74A
+            <div className="ml-6">Solna, 170 70</div>
+        </div>
+
+        <div className="text-md mt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-[1em] inline mr-2 size-5">
+                <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
+                <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
+            </svg>
+            pontus.asp@gmail.com</div>
+        <div className="text-md mt-2">
+            <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
+            pontusasp
+        </div>
+        <div className="text-md mt-2">
+            <img src="/img/linkedin.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
+            pontusasp
+        </div>
+        <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Utbildning</div>
+        <ul className="list-disc">
+            <li><div className="text-md mt-2">Civilingenjörsexamen i Informationsteknik 300 hp</div></li>
+        </ul>
+        <ul className="list-['-']">
+            <li><div className="text-md ml-3 mt-2">Datalogimaster med inriktning Visualisering och Grafik 120 hp</div></li>
+            <li><div className="text-md ml-3 mt-2">Teknologie kandidat i Informationsteknik 180 hp</div></li>
+        </ul>
+        <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Favoritspråk</div>
+        <ol className="list-decimal list-inside">
+            <li>Rust</li>
+            <li>TypeScript</li>
+            <li>Java</li>
+            <li>C/C++</li>
+        </ol>
+    </div>;
+}
+
+function Projects(skip, length) {
+    const periods = getCvData();
+    periods.reverse();
+
+    const p = periods.map(
+        (params) => <Period {...params} />
+    );
+
+    return <div className="flex flex-col gap-12 p-12">{p}</div>;
+}
+
+function Period({ title, date, body, links }) {
+    const child = <div className="flex flex-col gap-4">
+        <div>
+            <div className="flex justify-between gap-4 border-b border-gray-400 pb-1">
+                <span>{title}</span>
+                <span>{date}</span>
+            </div>
+        </div>
+        <span className="">{body}</span>
+        {links ? links.map((link) => <span>{link}</span>) : undefined}
+    </div>;
+    return <>
+        <CvCard child={child} />
+    </>;
+}
+
+function CvCard({ child }) {
+    return <div>
+        {child}
+    </div>
+}
+
+
+function getCvData() {
     const periods = [
         {
             title: "Made my first website",
@@ -99,29 +192,8 @@ function Cv() {
             date: "Part-time 2017 - 2024"
         },
     ];
-    periods.reverse();
-    
-    const p = periods.map(
-        (params) => <Period {...params} />
-    );
-    
-    return <div className="flex flex-col gap-12 p-12">{p}</div>;
-}
 
-function Period({title, date, body, links}) {
-    const child = <div className="flex flex-col gap-4">
-        <div>
-            <div className="flex justify-between gap-4 border-b-2 border-violet-900 pb-1">
-                <span>{title}</span>
-                <span>{date}</span>
-            </div>
-        </div>
-        <span className="">{body}</span>
-        {links ? links.map((link) => <span>{link}</span>) : undefined}
-    </div>;
-    return <>
-        <Card child={child} />
-    </>;
+    return periods;
 }
 
 export default Cv;
