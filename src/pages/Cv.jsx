@@ -5,9 +5,15 @@ function Cv() {
         <div className="grid justify-center bg-gray-500 p-4 a4-page-container gap-8">
             <div className="a4-page bg-white border-blue-800 grid grid-cols-3">
                 <div className="col-span-1"><Header /></div>
-                <div className="col-span-2"><Projects skip={0} length={4} /></div>
+                <div className="col-span-2 p-12"><Projects skip={0} length={4} /></div>
             </div>
-            <div className="a4-page bg-white"><Projects skip={4} length={4} /></div>
+            <div className="a4-page bg-white p-12">
+                <Projects skip={4} length={2} />
+                <div className="grid grid-cols-2 pt-16 gap-6">
+                    <Projects skip={6} length={2} />
+                    <Projects skip={8} length={2} />
+                </div>
+            </div>
         </div>
     </>;
 }
@@ -63,7 +69,7 @@ function Header() {
     </div>;
 }
 
-function Projects({skip, length}) {
+function Projects({skip, length, skip_padding}) {
     const periods = getCvData();
     periods.reverse();
 
@@ -71,7 +77,7 @@ function Projects({skip, length}) {
         (params) => <Period {...params} />
     );
 
-    return <div className="flex flex-col gap-12 p-12">{p}</div>;
+    return <div className="flex flex-col gap-12">{p}</div>;
 }
 
 function Period({ title, date, skills, stretch_skills, body, links }) {
@@ -177,23 +183,44 @@ function getCvData() {
             date: "2014",
         },*/
         {
+            title: "Nightmar (Projekt)",
+            date: "2023",
+            skills: ["C#", "Unity", "VR"],
+            body: <>
+                Nightmar är ett horror VR-spel utvecklat i Unity. Spelet utvecklades under en kurs på KTH av ett team på fem personer. Jag var även ansvarig för att utveckla spelets webbplats.
+            </>,
+        },
+        {
+            title: "Red Painter Man (Projekt)",
+            date: "2021",
+            skills: ["C#", "Unity"],
+            body: <>
+                The Red Painter är ett spel där du kan utforska en slumpmässigt genererad värld. När du kör längs vägarna hittar du lador som kan målas om och få sina tak rengjorda. Jag skapade spelet som en hyllning till min pappa, som driver ett måleriföretag, till hans 50-årsdag.
+            </>,
+        },
+        {
+            title: "Skattjakter",
+            date: "2024, 2025",
+            skills: ["Rust", "Bevy"],
+            body: <>
+                Under de tre senaste åren har jag utvecklat interaktiva puzzel/spel i födelsedagspresent åt min sambo, så att hon kan spela igenom spelen för att hitta ledtrådar för paket gömda i verkligheten. Det senaste utspelade sig i en 2D version av vår lägenhet.
+            </>,
+        },
+        {
+            title: "Fluid Simulation (Projekt)",
+            date: "2021",
+            skills: ["C++", "SFML"],
+            body: <>
+                Jag utvecklade ett projekt för kursen DH2323 Computer Graphics and Interaction på KTH. Det är en simulator för vätskedynamik baserad på Navier-Stokes-ekvationerna och en artikel av Jos Stam, utökad med stöd för statiska objekt som vätskan kan interagera med.                
+            </>,
+        },
+        {
             title: "Retro 2D UF",
             date: "2015 - 2016",
             skills: ["Java", "libGDX", "Android", "Game Development"],
-            body: <div className="flex flex-col gap-2">
-                <p>
-                    During an entrepreneur course me and a few friends decided to create a small game studio where we made two games that we released to the Google Play store.
-                    The games were called Overpopulation and Orbit - Infinite Space. The games have been removed from the Play Store due to not being updated, but you can find mirrors for both games here:
-                </p>
-                <div>
-                    <p>
-                        <a href="https://www.apkmonk.com/app/com.retro2d.orbit/" target="_blank" rel="noreferrer">https://www.apkmonk.com/app/com.retro2d.orbit/</a>
-                    </p>
-                    <p>
-                        <a href="https://www.apkmonk.com/app/com.retro2d.overpopulation.android/" target="_blank" rel="noreferrer">https://www.apkmonk.com/app/com.retro2d.overpopulation.android/</a>
-                    </p>
-                </div>
-            </div>,
+            body: <>
+                Under en entreprenörskurs startade jag tillsammans med några vänner en liten spelstudio där vi utvecklade två spel som vi släppte på Google Play. Spelen hette <i>Overpopulation</i> och <i>Orbit – Infinite Space</i>. Jag var ansvarig för all programmering av <i>Overpopulation</i>. Tyvärr har spelen tagits bort från Play Store eftersom de inte har blivit uppdaterade på för länge.
+            </>,
         },
         {
             title: <div className="align-bottom">Rödfärgarna Mellansverige AB</div>,
@@ -203,14 +230,17 @@ function getCvData() {
             </>,
             skills: ["PHP", "CSS", "HTML", "MySQL", "Docker", "Trello"],
             stretch_skills: false,
-            body: <></>,
+            body: <>
+                Under min tid hos Rödfärgarna så utvecklade jag ett kundhanteringssystem för att underlätta vardagen med hanteringen av kundinformation, orderstatus, kundmöten etc. Tanken med systemet var att flytta så mycket av informationshanteringen som möjligt in i systemet från det tidigare arbetsflödet där olika system, excel och papper var inblandade.<br />
+                Systemet blev en succé och används än idag. Majoriteten av utvecklingen skedde under de första åren, därefter började jag studera och arbetade mest med underhåll och buggfixar.
+            </>,
         },
         {
             title: "Master Thesis: Tiled Hydraulic Erosion",
             date: "Mars 2023 - Feb 2024",
             skills: ["Rust", "Macroquad", "Egui"],
             body: <>
-                Mitt masterarbete handlade om att få bort artifakter från ett rutnätsbaserat landskap där varje ruta har blivit eroderad separat. Jag skrev simuleringsmjukvaran i Rust.
+                Mitt masterarbete handlade om att få bort artefakter från ett rutnätsbaserat landskap där varje ruta har blivit eroderad separat. Jag skrev simuleringsmjukvaran för erosionen och för att samla statistik om olika lösningar i Rust.
             </>,
         },
         {
@@ -218,7 +248,8 @@ function getCvData() {
             date: "Februari 2024 - Nu",
             skills: ["Vue", "Ruby on Rails", "AWS Lambda", "TypeScript", "IaC"],
             body: <>
-                      Mellan uppdrag hos Skry så fick jag jobba på Skrys interna system som bl.a. hanterar tidsrapportering, generation av CVs, uppdragslistningar etc.
+                Mellan uppdrag hos Skry så fick jag jobba på Skrys interna system som bl.a. hanterar tidsrapportering, generation av CVs, uppdragslistningar etc.
+                Jag fick även träna på Infrastructure as Code med AWS Java CDK, och även att deploya python AWS lambdas.
             </>,
         },
         {
