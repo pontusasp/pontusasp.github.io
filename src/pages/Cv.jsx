@@ -2,12 +2,12 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function Cv() {
     return <>
-        <div className="grid justify-center bg-gray-500 p-4">
+        <div className="grid justify-center bg-gray-500 p-4 a4-page-container gap-8">
             <div className="a4-page bg-white border-blue-800 grid grid-cols-3">
                 <div className="col-span-1"><Header /></div>
                 <div className="col-span-2"><Projects skip={0} length={4} /></div>
             </div>
-            <div className="a4-page border mt-4"></div>
+            <div className="a4-page bg-white"><Projects skip={4} length={4} /></div>
         </div>
     </>;
 }
@@ -74,7 +74,7 @@ function Projects({skip, length}) {
     return <div className="flex flex-col gap-12 p-12">{p}</div>;
 }
 
-function Period({ title, date, skills, body, links }) {
+function Period({ title, date, skills, stretch_skills, body, links }) {
     if (skills) {
         skills = skills.slice();
         for (let i = 0; i < skills.length - 1; i += 2) {
@@ -88,7 +88,7 @@ function Period({ title, date, skills, body, links }) {
                 <span>{date}</span>
             </div>
         </div>
-        <div className={"flex text-gray-600 " + ((skills?.length / 2) >= 4 ? "justify-between" : "gap-2")}>{skills ? skills.map((skill) => <span>{skill}</span>) : undefined}</div>
+        <div className={"flex text-gray-600 " + ((skills?.length / 2 >= 4 && stretch_skills !== false) ? "justify-between" : "gap-2")}>{skills ? skills.map((skill) => <span>{skill}</span>) : undefined}</div>
         <span className="">{body}</span>
         {links ? links.map((link) => <span>{link}</span>) : undefined}
     </div>;
@@ -179,6 +179,7 @@ function getCvData() {
         {
             title: "Retro 2D UF",
             date: "2015 - 2016",
+            skills: ["Java", "libGDX", "Android", "Game Development"],
             body: <div className="flex flex-col gap-2">
                 <p>
                     During an entrepreneur course me and a few friends decided to create a small game studio where we made two games that we released to the Google Play store.
@@ -200,6 +201,8 @@ function getCvData() {
             <div className="text-right">2016 - 2017</div>
             <div>Deltid 2017 - 2024</div>
             </>,
+            skills: ["PHP", "CSS", "HTML", "MySQL", "Docker", "Trello"],
+            stretch_skills: false,
             body: <></>,
         },
         {
@@ -211,7 +214,7 @@ function getCvData() {
             </>,
         },
         {
-            title: "Skry",
+            title: "Skry (Konsultbolag)",
             date: "Februari 2024 - Nu",
             skills: ["Vue", "Ruby on Rails", "AWS Lambda", "TypeScript", "IaC"],
             body: <>
