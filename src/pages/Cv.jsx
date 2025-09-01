@@ -56,16 +56,14 @@ function Header() {
             <li><div className="text-md ml-3 mt-2">Teknologie kandidat i Informationsteknik 180 hp</div></li>
         </ul>
         <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Favoritspråk</div>
-        <div className="flex items-start justify-between">
-            <ol className="list-decimal list-inside w-24">
-                <li>Rust</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>C/C++</li>
-                <li>TypeScript</li>
-            </ol>
-            <img className="w-24 self-center" src="/img/pontusasp.se.qr.png" alt="QR to pontusasp.se" />
-        </div>
+        <ol className="list-decimal list-inside w-24">
+            <li>Rust</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>C/C++</li>
+            <li>TypeScript</li>
+        </ol>
+        <img className="w-24 mt-6 self-start" src="/img/pontusasp.se.qr.png" alt="QR to pontusasp.se" />
     </div>;
 }
 
