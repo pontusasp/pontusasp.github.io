@@ -50,13 +50,16 @@ function Header() {
             <li><div className="text-md ml-3 mt-2">Teknologie kandidat i Informationsteknik 180 hp</div></li>
         </ul>
         <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Favoritspråk</div>
-        <ol className="list-decimal list-inside">
-            <li>Rust</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>C/C++</li>
-            <li>TypeScript</li>
-        </ol>
+        <div className="flex items-start justify-between">
+            <ol className="list-decimal list-inside w-24">
+                <li>Rust</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>C/C++</li>
+                <li>TypeScript</li>
+            </ol>
+            <img className="w-24 self-center" src="/img/pontusasp.se.qr.png" alt="QR to pontusasp.se" />
+        </div>
     </div>;
 }
 
@@ -85,7 +88,7 @@ function Period({ title, date, skills, body, links }) {
                 <span>{date}</span>
             </div>
         </div>
-        <div className={"flex gap-2 text-gray-600 " + ((skills?.length / 2) >= 4 ? "justify-between" : "")}>{skills ? skills.map((skill) => <span>{skill}</span>) : undefined}</div>
+        <div className={"flex text-gray-600 " + ((skills?.length / 2) >= 4 ? "justify-between" : "gap-2")}>{skills ? skills.map((skill) => <span>{skill}</span>) : undefined}</div>
         <span className="">{body}</span>
         {links ? links.map((link) => <span>{link}</span>) : undefined}
     </div>;
@@ -213,17 +216,22 @@ function getCvData() {
         {
             title: "SAMI (Konsult via Skry)",
             date: "Mars 2024 - Juni 2024",
-            body: <></>,
+            skills: ["React", "React Native", "TypeScript", "Fastify", "Full-Stack"],
+            body: <>
+                Hos SAMI så jobbade jag med utvecklade av deras app som används för att hjälpa artister att få betalt för sin musik.
+                Jag jobbade även på att lägga till nya funktioner till deras webbshop som riktade sig mot kunder (e.g. restauranger).
+                Även om min främsta uppgift var att utveckla deras frontends så fick jag även i uppgift att utveckla deras backend.
+            </>,
         },
         {
             title: "SEB (Konsult via Skry)",
             date: "Juni 2024 - Nu",
-            skills: [".NET/C#", "IBM MQ", "Kafka", "Google PubSub", "REST"],
+            skills: [".NET/C#", "IBM MQ", "Kafka", "PubSub", "Docker", "Kubernetes"],
             body: <>
                 Integratör och Fullstack-Utvecklare hos SEB.
-                Via min integratörsroll så har jag jobbat flitigt med tekniker så som IBM MQ, Kafka, Google PubSub, REST.
-                Dessa applikationer har skrivits i C#/.NET.
-                Jag har även jobbat med React/TypeScript och Google Kubernetes i GCP.
+                Via min integratörsroll så har jag jobbat flitigt med ett gäng olika kommunikationsprotokoll för att koppla ihop olika system.
+                Dessa integrationsapplikationer har skrivits i C#/.NET.
+                Jag har även jobbat med React/TypeScript, och har satt upp CI/CD deploy pipelines till både GKE i GCP och till OpenShift.
             </>,
         },
     ];
