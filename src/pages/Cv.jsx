@@ -203,15 +203,20 @@ function getCvData() {
             body: <></>,
         },
         {
-            title: "Master Thesis: Hydraulic Erosion",
+            title: "Master Thesis: Tiled Hydraulic Erosion",
             date: "Mars 2023 - Feb 2024",
             skills: ["Rust", "Macroquad", "Egui"],
-            body: <></>,
+            body: <>
+                Mitt masterarbete handlade om att få bort artifakter från ett rutnätsbaserat landskap där varje ruta har blivit eroderad separat. Jag skrev simuleringsmjukvaran i Rust.
+            </>,
         },
         {
             title: "Skry",
             date: "Februari 2024 - Nu",
-            body: <></>,
+            skills: ["Vue", "Ruby on Rails", "AWS Lambda", "TypeScript", "IaC"],
+            body: <>
+                      Mellan uppdrag hos Skry så fick jag jobba på Skrys interna system som bl.a. hanterar tidsrapportering, generation av CVs, uppdragslistningar etc.
+            </>,
         },
         {
             title: "SAMI (Konsult via Skry)",
