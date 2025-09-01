@@ -40,12 +40,16 @@ function Header() {
             </svg>
             pontus.asp@gmail.com</div>
         <div className="text-md mt-2">
-            <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
-            pontusasp
+            <a href="https://github.com/pontusasp/" target="_blank">
+                <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
+                pontusasp
+            </a>
         </div>
         <div className="text-md mt-2">
-            <img src="/img/linkedin.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
-            pontusasp
+            <a href="https://linkedin.com/in/pontusasp/" target="_blank">
+                <img src="/img/linkedin.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
+                pontusasp
+            </a>
         </div>
         <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">Utbildning</div>
         <ul className="list-disc">
@@ -63,7 +67,7 @@ function Header() {
             <li>C/C++</li>
             <li>TypeScript</li>
         </ol>
-        <img className="w-24 mt-6 self-start" src="/img/pontusasp.se.qr.png" alt="QR to pontusasp.se" />
+        <a href="https://pontusasp.se" target="_blank"><img className="w-24 mt-6 self-start" src="/img/pontusasp.se.qr.png" alt="QR to pontusasp.se" /></a>
     </div>;
 }
 
@@ -197,11 +201,11 @@ function getCvData() {
             </>,
         },
         {
-            title: "Skattjakter",
+            title: "Skattjakter (Projekt)",
             date: "2024, 2025",
             skills: ["Rust", "Bevy"],
             body: <>
-                Under de tre senaste åren har jag utvecklat interaktiva puzzel/spel i födelsedagspresent åt min sambo, så att hon kan spela igenom spelen för att hitta ledtrådar för paket gömda i verkligheten. Det senaste utspelade sig i en 2D version av vår lägenhet.
+                Under de två senaste åren har jag utvecklat interaktiva puzzel/spel i födelsedagspresent åt min sambo, så att hon kan spela igenom spelen för att hitta ledtrådar för paket gömda i verkligheten. Det senaste utspelade sig i en 2D version av vår lägenhet.
             </>,
         },
         {
@@ -255,9 +259,9 @@ function getCvData() {
             date: "Mars 2024 - Juni 2024",
             skills: ["React", "React Native", "TypeScript", "Fastify", "Full-Stack"],
             body: <>
-                Hos SAMI så jobbade jag med utvecklade av deras app som används för att hjälpa artister att få betalt för sin musik.
-                Jag jobbade även på att lägga till nya funktioner till deras webbshop som riktade sig mot kunder (e.g. restauranger).
-                Även om min främsta uppgift var att utveckla deras frontends så fick jag även i uppgift att utveckla deras backend.
+                Hos SAMI jobbade jag med att utveckla deras app och webbshop som används för att hjälpa artister att få betalt för sin musik.
+                Appen riktade sig mot artisterna, medan webbshoppen riktade sig mot kunderna (e.g. restauranger).
+                Jag arbetade även med backenden som användes av både appen och webbshoppen.
             </>,
         },
         {
