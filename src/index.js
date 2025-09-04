@@ -15,6 +15,7 @@ import Root from "./Root";
 import Dh2650Blog from "./pages/kth/Dh2650Blog";
 import LostAndFound from "./pages/LostAndFound";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       },
       { path: "portfolio", element: <Portfolio /> },
       { path: "*", element: <NotFound /> },
+      {
+        path: "contact",
+        element: <Contact />
+      },
     ],
   },
   {
