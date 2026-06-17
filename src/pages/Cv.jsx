@@ -1,9 +1,12 @@
 import { useState, useRef } from "react";
 import CvDocument from "../components/cv/CvDocument";
+import { CvEditProvider } from "../components/cv/CvEditContext";
 import defaultCvData from "../data/cv.json";
 
 function Cv() {
     const [data, setData] = useState(defaultCvData);
+    const [editing, setEditing] = useState(false);
+    const [showToolbar, setShowToolbar] = useState(false);
     const fileInputRef = useRef(null);
 
     function handleExport() {
@@ -33,30 +36,38 @@ function Cv() {
     }
 
     return (
-        <>
-            <div className="flex justify-center gap-4 p-4 bg-gray-500 print:hidden">
-                <button
-                    onClick={handleExport}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                >
-                    Export JSON
-                </button>
-                <button
-                    onClick={() => fileInputRef.current.click()}
-                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                >
-                    Import JSON
-                </button>
-                <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept=".json"
-                    onChange={handleImport}
-                    className="hidden"
-                />
-            </div>
+        <CvEditProvider editing={editing} data={data} setData={setData} onToggleToolbar={() => setShowToolbar(s => !s)}>
+            {showToolbar && (
+                <div className="flex justify-center gap-4 p-4 bg-gray-500 print:hidden">
+                    <button
+                        onClick={() => setEditing(!editing)}
+                        className={"px-4 py-2 rounded text-white " + (editing ? "bg-amber-600 hover:bg-amber-700" : "bg-gray-700 hover:bg-gray-800")}
+                    >
+                        {editing ? "Stop Editing" : "Edit"}
+                    </button>
+                    <button
+                        onClick={handleExport}
+                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    >
+                        Export JSON
+                    </button>
+                    <button
+                        onClick={() => fileInputRef.current.click()}
+                        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                    >
+                        Import JSON
+                    </button>
+                    <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".json"
+                        onChange={handleImport}
+                        className="hidden"
+                    />
+                </div>
+            )}
             <CvDocument data={data} />
-        </>
+        </CvEditProvider>
     );
 }
 
