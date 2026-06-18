@@ -16,47 +16,38 @@ function CvEntry({ id, title, titleAlign, date, skills, stretchSkills, body, lin
 
     const dateContent = editing
         ? Array.isArray(date)
-            ? <div className="flex flex-col gap-1">
+            ? <span>
                 {date.map((d, i) => (
-                    <input
-                        key={i}
-                        type="text"
-                        value={d}
-                        onChange={e => {
-                            const newDate = [...date];
-                            newDate[i] = e.target.value;
-                            update(`${path}.date`, newDate);
-                        }}
-                        className="border border-blue-300 rounded px-1 text-right w-full"
-                    />
+                    <div key={i} className={i === 0 ? "text-right" : ""}>
+                        <EditableField
+                            value={d}
+                            onChange={v => {
+                                const newDate = [...date];
+                                newDate[i] = v;
+                                update(`${path}.date`, newDate);
+                            }}
+                        />
+                    </div>
                 ))}
-                <button onClick={() => update(`${path}.date`, [...date, ""])} className="text-xs text-blue-600">+ date line</button>
-            </div>
-            : <input
-                type="text"
+            </span>
+            : <EditableField
                 value={date || ""}
-                onChange={e => update(`${path}.date`, e.target.value)}
-                className="border border-blue-300 rounded px-1 text-right"
+                onChange={v => update(`${path}.date`, v)}
+                className="text-right"
             />
         : Array.isArray(date)
             ? <span>{date.map((d, i) => <div key={i} className={i === 0 ? "text-right" : ""}>{d}</div>)}</span>
             : <span>{date}</span>;
 
     const skillsContent = editing
-        ? <input
-            type="text"
-            value={(skills || []).join(", ")}
-            onChange={e => update(`${path}.skills`, e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
-            placeholder="Skills (comma separated)"
-            className="border border-blue-300 rounded px-1 w-full text-gray-600"
-        />
+        ? <CvSkills skills={skills} stretchSkills={stretchSkills} entryPath={path} />
         : <CvSkills skills={skills} stretchSkills={stretchSkills} />;
 
     const bodyContent = editing
-        ? <textarea
+        ? <EditableField
             value={body || ""}
-            onChange={e => update(`${path}.body`, e.target.value)}
-            className="border border-blue-300 rounded px-1 w-full min-h-[4em] resize-y"
+            onChange={v => update(`${path}.body`, v)}
+            multiline
         />
         : <CvBody text={body} />;
 

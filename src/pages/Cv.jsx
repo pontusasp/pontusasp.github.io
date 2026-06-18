@@ -6,6 +6,7 @@ import defaultCvData from "../data/cv.json";
 function Cv() {
     const [data, setData] = useState(defaultCvData);
     const [editing, setEditing] = useState(false);
+    const [sideBySide, setSideBySide] = useState(false);
     const [showToolbar, setShowToolbar] = useState(false);
     const fileInputRef = useRef(null);
 
@@ -45,6 +46,14 @@ function Cv() {
                     >
                         {editing ? "Stop Editing" : "Edit"}
                     </button>
+                    {editing && (
+                        <button
+                            onClick={() => setSideBySide(!sideBySide)}
+                            className={"px-4 py-2 rounded text-white " + (sideBySide ? "bg-purple-600 hover:bg-purple-700" : "bg-gray-700 hover:bg-gray-800")}
+                        >
+                            {sideBySide ? "Single View" : "Side by Side"}
+                        </button>
+                    )}
                     <button
                         onClick={handleExport}
                         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -66,7 +75,16 @@ function Cv() {
                     />
                 </div>
             )}
-            <CvDocument data={data} />
+            {editing && sideBySide ? (
+                <div className="flex justify-center gap-8">
+                    <CvDocument data={data} />
+                    <CvEditProvider editing={false} data={data} setData={setData} onToggleToolbar={() => {}}>
+                        <CvDocument data={data} />
+                    </CvEditProvider>
+                </div>
+            ) : (
+                <CvDocument data={data} />
+            )}
         </CvEditProvider>
     );
 }

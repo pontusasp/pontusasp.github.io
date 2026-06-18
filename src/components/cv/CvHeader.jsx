@@ -38,68 +38,66 @@ function CvHeader() {
                 <EditableField value={header.contact.email} onChange={v => update("header.contact.email", v)} />
             </div>
             <div className="text-md mt-2">
-                {editing
-                    ? <div className="flex items-center gap-1">
-                        <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
-                        <EditableField value={header.contact.github} onChange={v => update("header.contact.github", v)} />
-                    </div>
-                    : <a href={`https://github.com/${header.contact.github}/`} target="_blank">
-                        <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
-                        {header.contact.github}
-                    </a>
-                }
+                <a href={editing ? undefined : `https://github.com/${header.contact.github}/`} target="_blank">
+                    <img src="/img/github-mark.svg" alt="GitHub Logo" className="h-[1em] mr-2 inline grayscale" />
+                    <EditableField value={header.contact.github} onChange={v => update("header.contact.github", v)} />
+                </a>
             </div>
             <div className="text-md mt-2">
-                {editing
-                    ? <div className="flex items-center gap-1">
-                        <img src="/img/linkedin.svg" alt="LinkedIn Logo" className="h-[1em] mr-2 inline grayscale" />
-                        <EditableField value={header.contact.linkedin} onChange={v => update("header.contact.linkedin", v)} />
-                    </div>
-                    : <a href={`https://linkedin.com/in/${header.contact.linkedin}/`} target="_blank">
-                        <img src="/img/linkedin.svg" alt="LinkedIn Logo" className="h-[1em] mr-2 inline grayscale" />
-                        {header.contact.linkedin}
-                    </a>
-                }
+                <a href={editing ? undefined : `https://linkedin.com/in/${header.contact.linkedin}/`} target="_blank">
+                    <img src="/img/linkedin.svg" alt="LinkedIn Logo" className="h-[1em] mr-2 inline grayscale" />
+                    <EditableField value={header.contact.linkedin} onChange={v => update("header.contact.linkedin", v)} />
+                </a>
             </div>
             <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">{header.education.heading}</div>
             <ul className="list-disc">
-                {header.education.degrees.filter(d => d.level === "primary").map((d, i) => (
-                    <li key={i}>
-                        <div className="text-md mt-2">
-                            <EditableField
-                                value={d.name}
-                                onChange={v => {
-                                    const idx = header.education.degrees.indexOf(d);
-                                    update(`header.education.degrees[${idx}].name`, v);
-                                }}
-                            />
-                        </div>
-                    </li>
-                ))}
+                {header.education.degrees.filter(d => d.level === "primary").map((d, i) => {
+                    const idx = header.education.degrees.indexOf(d);
+                    return (
+                        <li key={i}>
+                            <div className="text-md mt-2">
+                                <EditableField
+                                    value={d.name}
+                                    onChange={v => update(`header.education.degrees[${idx}].name`, v)}
+                                />
+                            </div>
+                        </li>
+                    );
+                })}
             </ul>
             <ul className="list-['-']">
-                {header.education.degrees.filter(d => d.level === "sub").map((d, i) => (
-                    <li key={i}>
-                        <div className="text-md ml-3 mt-2">
-                            <EditableField
-                                value={d.name}
-                                onChange={v => {
-                                    const idx = header.education.degrees.indexOf(d);
-                                    update(`header.education.degrees[${idx}].name`, v);
-                                }}
-                            />
-                        </div>
-                    </li>
-                ))}
+                {header.education.degrees.filter(d => d.level === "sub").map((d, i) => {
+                    const idx = header.education.degrees.indexOf(d);
+                    return (
+                        <li key={i}>
+                            <div className="text-md ml-3 mt-2">
+                                <EditableField
+                                    value={d.name}
+                                    onChange={v => update(`header.education.degrees[${idx}].name`, v)}
+                                />
+                            </div>
+                        </li>
+                    );
+                })}
             </ul>
             <div className="text-lg mt-12 font-bold border-b-2 border-gray-400">{header.languages.heading}</div>
             {editing
-                ? <input
-                    type="text"
-                    value={header.languages.items.join(", ")}
-                    onChange={e => update("header.languages.items", e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
-                    className="border border-blue-300 rounded px-1 w-full"
-                />
+                ? <ol className="list-decimal list-inside w-full">
+                    {header.languages.items.map((lang, i) => (
+                        <li key={i}>
+                            <span
+                                contentEditable
+                                suppressContentEditableWarning
+                                onBlur={e => {
+                                    const items = [...header.languages.items];
+                                    items[i] = e.currentTarget.textContent.trim();
+                                    update("header.languages.items", items.filter(Boolean));
+                                }}
+                                className="outline-none"
+                            >{lang}</span>
+                        </li>
+                    ))}
+                </ol>
                 : <ol className="list-decimal list-inside w-24">
                     {header.languages.items.map((lang, i) => <li key={i}>{lang}</li>)}
                 </ol>
