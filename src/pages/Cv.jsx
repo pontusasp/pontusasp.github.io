@@ -76,7 +76,7 @@ function Cv() {
                 </div>
             )}
             {editing && sideBySide ? (
-                <div className="flex justify-center gap-8">
+                <div className="flex justify-center bg-gray-500">
                     <CvDocument data={data} />
                     <CvEditProvider editing={false} data={data} setData={setData} onToggleToolbar={() => {}}>
                         <CvDocument data={data} />

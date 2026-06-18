@@ -14,22 +14,22 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
     const columns = section.columns || 1;
 
     const entryList = sectionEntries.map((entry, i) => (
-        <div key={entry.id} className={editing ? "relative border border-dashed border-blue-300 p-2 rounded" : ""}>
+        <div key={entry.id} className={editing ? "relative border-l-2 border-blue-300 pl-2" : ""}>
             {editing && (
-                <div className="absolute -top-3 right-0 flex gap-1 print:hidden">
+                <div className="absolute -top-1 -right-1 flex gap-0.5 print:hidden">
                     <button
                         onClick={() => ctx.moveEntryInSection(pageIdx, secIdx, entry.id, -1)}
                         disabled={i === 0}
-                        className="px-1 bg-gray-200 rounded text-xs disabled:opacity-30"
+                        className="px-1 bg-gray-200 rounded text-xs leading-tight disabled:opacity-30"
                     >↑</button>
                     <button
                         onClick={() => ctx.moveEntryInSection(pageIdx, secIdx, entry.id, 1)}
                         disabled={i === sectionEntries.length - 1}
-                        className="px-1 bg-gray-200 rounded text-xs disabled:opacity-30"
+                        className="px-1 bg-gray-200 rounded text-xs leading-tight disabled:opacity-30"
                     >↓</button>
                     <button
                         onClick={() => ctx.removeEntryFromSection(pageIdx, secIdx, entry.id)}
-                        className="px-1 bg-red-200 rounded text-xs"
+                        className="px-1 bg-red-200 rounded text-xs leading-tight"
                     >✕</button>
                 </div>
             )}
@@ -38,7 +38,7 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
     ));
 
     const addEntryControl = editing && (
-        <div className="flex gap-2 mt-4 print:hidden">
+        <div className="absolute -bottom-4 left-0 flex gap-2 print:hidden z-10">
             <select
                 defaultValue=""
                 onChange={e => {
@@ -50,10 +50,10 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
                     }
                     e.target.value = "";
                 }}
-                className="border rounded px-2 py-1 text-sm"
+                className="border rounded px-1 py-0.5 text-xs bg-white"
             >
                 <option value="">Add entry...</option>
-                <option value="__new__">+ Create new entry</option>
+                <option value="__new__">+ Create new</option>
                 {ctx.data.entries
                     .filter(e => !section.entryIds.includes(e.id))
                     .map(e => <option key={e.id} value={e.id}>{e.title}</option>)
@@ -63,13 +63,13 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
     );
 
     const columnControl = editing && (
-        <div className="flex gap-1 mb-2 print:hidden">
-            <span className="text-xs text-gray-500 mr-1">Columns:</span>
+        <div className="absolute -top-4 left-0 flex gap-1 print:hidden z-10">
+            <span className="text-xs text-gray-500 mr-1">Col:</span>
             {[1, 2, 3].map(n => (
                 <button
                     key={n}
                     onClick={() => ctx.updateSectionColumns(pageIdx, secIdx, n)}
-                    className={"px-2 py-0.5 rounded text-xs " + (columns === n ? "bg-blue-600 text-white" : "bg-gray-200")}
+                    className={"px-1.5 rounded text-xs leading-tight " + (columns === n ? "bg-blue-600 text-white" : "bg-gray-200")}
                 >{n}</button>
             ))}
         </div>
@@ -77,10 +77,10 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
 
     if (columns === 1) {
         return (
-            <div>
+            <div className={editing ? "relative" : ""}>
                 {columnControl}
                 {section.title && <div className="text-xl font-bold">{section.title}</div>}
-                <div className="flex flex-col gap-12">
+                <div className={"flex flex-col " + (editing ? "gap-6" : "gap-12")}>
                     {entryList}
                 </div>
                 {addEntryControl}
@@ -95,12 +95,12 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
     );
 
     return (
-        <div>
+        <div className={editing ? "relative" : ""}>
             {columnControl}
             {section.title && <div className="text-xl font-bold mb-4">{section.title}</div>}
             <div className={gridClass}>
                 {colGroups.map((group, c) => (
-                    <div key={c} className="flex flex-col gap-12">{group}</div>
+                    <div key={c} className={"flex flex-col " + (editing ? "gap-6" : "gap-12")}>{group}</div>
                 ))}
             </div>
             {addEntryControl}
