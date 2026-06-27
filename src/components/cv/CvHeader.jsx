@@ -98,7 +98,7 @@ function CvHeader() {
                         </li>
                     ))}
                 </ol>
-                : <ol className="list-decimal list-inside w-25">
+                : <ol className="list-decimal list-inside w-full">
                     {header.languages.items.map((lang, i) => <li key={i}>{lang}</li>)}
                 </ol>
             }
