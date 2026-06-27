@@ -98,13 +98,15 @@ function CvHeader() {
                         </li>
                     ))}
                 </ol>
-                : <ol className="list-decimal list-inside w-24">
+                : <ol className="list-decimal list-inside w-25">
                     {header.languages.items.map((lang, i) => <li key={i}>{lang}</li>)}
                 </ol>
             }
-            <a href={header.qr.url} target="_blank">
-                <img className="w-24 mt-6 self-start" src={header.qr.image} alt={`QR to ${header.qr.url}`} />
-            </a>
+            {header.qr.show !== false && (
+                <a href={header.qr.url} target="_blank">
+                    <img className="w-24 mt-6 self-start" src={header.qr.image} alt={`QR to ${header.qr.url}`} />
+                </a>
+            )}
         </div>
     );
 }
