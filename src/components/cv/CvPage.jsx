@@ -19,6 +19,7 @@ function CvPage({ page, entries, header, pageIdx }) {
 
     if (page.layout === "split") {
         const gridTemplate = page.columns.map(c => `${c}fr`).join(" ");
+        const hgap = page.hgap ?? "0";
         const sectionsByColumn = {};
         page.sections.forEach((section, idx) => {
             const col = section.column ?? 0;
@@ -28,7 +29,7 @@ function CvPage({ page, entries, header, pageIdx }) {
 
         return (
             <div>
-                <div className="a4-page bg-white border-blue-800 grid" style={{ gridTemplateColumns: gridTemplate }}>
+                <div className="a4-page bg-white border-blue-800 grid" style={{ gridTemplateColumns: gridTemplate, columnGap: hgap }}>
                     {page.columns.map((_, colIdx) => {
                         const sections = sectionsByColumn[colIdx] || [];
                         const isMainContent = colIdx > 0;
@@ -42,7 +43,7 @@ function CvPage({ page, entries, header, pageIdx }) {
                                                 className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs print:hidden"
                                             >✕</button>
                                         )}
-                                        <CvSection section={section} entries={entries} header={header} pageIdx={pageIdx} secIdx={idx} />
+                                        <CvSection section={section} entries={entries} header={header} pageIdx={pageIdx} secIdx={idx} vgap={page.vgap} />
                                     </div>
                                 ))}
                             </div>
@@ -65,7 +66,7 @@ function CvPage({ page, entries, header, pageIdx }) {
                                 className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs print:hidden z-10"
                             >✕</button>
                         )}
-                        <CvSection section={section} entries={entries} header={header} pageIdx={pageIdx} secIdx={i} />
+                        <CvSection section={section} entries={entries} header={header} pageIdx={pageIdx} secIdx={i} vgap={page.vgap} hgap={page.hgap} />
                     </div>
                 ))}
             </div>

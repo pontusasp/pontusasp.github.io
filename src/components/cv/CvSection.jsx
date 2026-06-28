@@ -2,7 +2,7 @@ import CvEntry from "./CvEntry";
 import CvHeader from "./CvHeader";
 import { useCvEdit } from "./CvEditContext";
 
-function CvSection({ section, entries, header, pageIdx, secIdx }) {
+function CvSection({ section, entries, header, pageIdx, secIdx, vgap, hgap }) {
     const ctx = useCvEdit();
     const { editing } = ctx;
 
@@ -80,7 +80,7 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
             <div className={editing ? "relative" : ""}>
                 {columnControl}
                 {section.title && <div className="text-xl font-bold">{section.title}</div>}
-                <div className={"flex flex-col " + (editing ? "gap-6" : "gap-12")}>
+                <div className={"flex flex-col " + (vgap ? "" : editing ? "gap-6" : "gap-12")} style={vgap ? { gap: vgap } : undefined}>
                     {entryList}
                 </div>
                 {addEntryControl}
@@ -88,7 +88,7 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
         );
     }
 
-    const gridClass = columns === 2 ? "grid grid-cols-2 gap-6" : "grid grid-cols-3 gap-6";
+    const gridClass = columns === 2 ? "grid grid-cols-2" : "grid grid-cols-3";
     const perCol = Math.ceil(entryList.length / columns);
     const colGroups = Array.from({ length: columns }, (_, c) =>
         entryList.slice(c * perCol, (c + 1) * perCol)
@@ -98,9 +98,9 @@ function CvSection({ section, entries, header, pageIdx, secIdx }) {
         <div className={editing ? "relative" : ""}>
             {columnControl}
             {section.title && <div className="text-xl font-bold mb-4">{section.title}</div>}
-            <div className={gridClass}>
+            <div className={gridClass} style={{ columnGap: hgap ?? "1.5rem" }}>
                 {colGroups.map((group, c) => (
-                    <div key={c} className={"flex flex-col " + (editing ? "gap-6" : "gap-12")}>{group}</div>
+                    <div key={c} className={"flex flex-col " + (vgap ? "" : editing ? "gap-6" : "gap-12")} style={vgap ? { gap: vgap } : undefined}>{group}</div>
                 ))}
             </div>
             {addEntryControl}
